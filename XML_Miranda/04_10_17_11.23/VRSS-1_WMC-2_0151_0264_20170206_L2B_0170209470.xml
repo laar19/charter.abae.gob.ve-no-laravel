@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<productMeta>
+	<productId>170209470</productId>
+	<sceneId>758234</sceneId>
+	<satelliteId>VRSS-1</satelliteId>
+	<recStationId>FGS-1</recStationId>
+	<sensorId>WMC-2</sensorId>
+	<orbitId>23545</orbitId>
+	<productDate>2017 02 09 19:56:06.148667</productDate>
+	<productLevel>LEVEL2B</productLevel>
+	<bands>1,2,3,4</bands>
+	<pixelSpacing>0.000</pixelSpacing>
+	<dataFormatDes>GEOTIFF</dataFormatDes>
+	<cloudCoverage>37</cloudCoverage>
+	<quality>6</quality>
+	<productType>Standard</productType>
+	<sceneCount>1</sceneCount>
+	<sceneShift>0</sceneShift>
+	<imagingStartTime>2017 02 06 15:20:12.244670</imagingStartTime>
+	<imagingStopTime>2017 02 06 15:20:39.335320</imagingStopTime>
+	<gain>278,278,221,221,255,255,29,29</gain>
+	<intergralLevel>0</intergralLevel>
+	<sunElevation>64.694</sunElevation>
+	<sunAzimuth>54.850</sunAzimuth>
+	<roll>18.250464</roll>
+	<mtfcPro>No</mtfcPro>
+	<ephemerisData>GPS</ephemerisData>
+	<attitudeData>StarsensorAtt</attitudeData>
+	<earthModel>WGS_84</earthModel>
+	<mapProjection>GEOGRAPHIC</mapProjection>
+	<resampleTechnique>CC</resampleTechnique>
+	<satPath>154</satPath>
+	<satRow>264</satRow>
+	<scenePath>151</scenePath>
+	<sceneRow>264</sceneRow>
+	<sceneCenterLat>-31.668206</sceneCenterLat>
+	<sceneCenterLong>-71.359826</sceneCenterLong>
+	<dataUpperLeftLat>-30.667345</dataUpperLeftLat>
+	<dataUpperLeftLong>-72.123380</dataUpperLeftLong>
+	<dataUpperRightLat>-31.013277</dataUpperRightLat>
+	<dataUpperRightLong>-70.127516</dataUpperRightLong>
+	<dataLowerLeftLat>-32.323938</dataLowerLeftLat>
+	<dataLowerLeftLong>-72.547103</dataLowerLeftLong>
+	<dataLowerRightLat>-32.672333</dataLowerRightLat>
+	<dataLowerRightLong>-70.512690</dataLowerRightLong>
+	<productUpperLeftLat>-30.667345</productUpperLeftLat>
+	<productUpperLeftLong>-72.547103</productUpperLeftLong>
+	<productUpperRightLat>-30.667345</productUpperRightLat>
+	<productUpperRightLong>-70.127516</productUpperRightLong>
+	<productLowerLeftLat>-32.672333</productLowerLeftLat>
+	<productLowerLeftLong>-72.547103</productLowerLeftLong>
+	<productLowerRightLat>-32.672333</productLowerRightLat>
+	<productLowerRightLong>-70.127516</productLowerRightLong>
+	<dataUpperLeftX>-72.123380</dataUpperLeftX>
+	<dataUpperLeftY>-30.667345</dataUpperLeftY>
+	<dataUpperRightX>-70.127516</dataUpperRightX>
+	<dataUpperRightY>-31.013277</dataUpperRightY>
+	<dataLowerLeftX>-72.547103</dataLowerLeftX>
+	<dataLowerLeftY>-32.323938</dataLowerLeftY>
+	<dataLowerRightX>-70.512690</dataLowerRightX>
+	<dataLowerRightY>-32.672333</dataLowerRightY>
+	<productUpperLeftX>-72.547103</productUpperLeftX>
+	<productUpperLeftY>-30.667345</productUpperLeftY>
+	<productUpperRightX>-70.127516</productUpperRightX>
+	<productUpperRightY>-30.667345</productUpperRightY>
+	<productLowerLeftX>-72.547103</productLowerLeftX>
+	<productLowerLeftY>-32.672333</productLowerLeftY>
+	<productLowerRightX>-70.127516</productLowerRightX>
+	<productLowerRightY>-32.672333</productLowerRightY>
+	<imageName>VRSS-1_WMC-2_0151_0264_20170206_L2B_0170209470_1.tif,VRSS-1_WMC-2_0151_0264_20170206_L2B_0170209470_2.tif,VRSS-1_WMC-2_0151_0264_20170206_L2B_0170209470_3.tif,VRSS-1_WMC-2_0151_0264_20170206_L2B_0170209470_4.tif</imageName>
+	<browseName>VRSS-1_WMC-2_0151_0264_20170206_L2B_0170209470.jpg</browseName>
+	<thumbName>VRSS-1_WMC-2_0151_0264_20170206_L2B_0170209470_THUMB.jpg</thumbName>
+</productMeta>
