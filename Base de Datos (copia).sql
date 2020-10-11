@@ -4,10 +4,9 @@ use charter;
 
 CREATE TABLE usuario
 (
-  id int(5) AUTO_INCREMENT,
   username varchar(15) NOT NULL,
   pass varchar (15) NOT NULL,
-  CONSTRAINT id_pkey PRIMARY KEY (id)
+  CONSTRAINT usuario_pkey PRIMARY KEY (username)
 );
 
 INSERT INTO usuario (username , pass) VALUES ('lmeza' , 1234);

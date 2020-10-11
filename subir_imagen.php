@@ -1,5 +1,6 @@
 <?php
-include 'conexion.php';
+//include 'conexion.php'; // BORRAR
+include 'pg_connection/pg_connection.php';
 
 $archivo = (isset($_FILES['archivo'])) ? $_FILES['archivo'] : null;
 if ($archivo) {
@@ -18,11 +19,20 @@ if ($archivo) {
        $ruta = 'img_preview/preview'.$date.$nombre;
        $fecha = time();
        $fecha2 = date("d/m/Y",$fecha);
-                    
-  //Creamos nuestra consulta sql
-   $query="insert into imagen(nombre,ruta,fecha) value ('$nombre','$ruta','$fecha2')";
-   //Ejecutamos la consutla
-   mysqli_query($query) or die('Error al procesar consulta: ' . mysqli_error());
+         
+    $query = "INSERT INTO charter.imagen (nombre, ruta, fecha) VALUES (?, ?, ?)";
+    $stmt  = $conn->prepare($query);
+    if ($stmt->execute([$nombre, $ruta, $fecha2]) === false) {
+        echo "ERROR";
+    }
+    
+    // BORRAR
+    /*
+    //Creamos nuestra consulta sql
+    $query="insert into imagen(nombre,ruta,fecha) value ('$nombre','$ruta','$fecha2')";
+    //Ejecutamos la consutla
+    mysqli_query($query) or die('Error al procesar consulta: ' . mysqli_error());
+    */
     
     }
 

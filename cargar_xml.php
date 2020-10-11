@@ -6,7 +6,8 @@
 
 <?php
 
-include 'conexion.php';
+//include 'conexion.php';
+include 'pg_connection/pg_connection.php';
 
 $archivo = (isset($_FILES['archivo'])) ? $_FILES['archivo'] : null;
 if ($archivo) {
@@ -29,10 +30,16 @@ if ($archivo) {
                     
   //mysqli_select_db('charter') or die('No pudo selecionar la BD');
   //Creamos nuestra consulta sql
-   $query="insert into archivo(nombre,ruta,fecha) value ('$nombre','$ruta','$fecha2')";
+   //$query="insert into archivo(nombre,ruta,fecha) value ('$nombre','$ruta','$fecha2')"; // BORRAR
    //$db      = 'charter';
    //Ejecutamos la consutla
    //mysqli_query($query,$conn) or die('Error al procesar consulta: ' . mysqli_error());
+         
+    $query = "INSERT INTO charter.archivo (nombre, ruta, fecha) VALUES (?, ?, ?)";
+    $stmt  = $conn->prepare($query);
+    if ($stmt->execute([$nombre, $ruta, $fecha2]) === false) {
+        echo "ERROR";
+    }
 
    if (mysqli_query($conn, $query)) {
       echo "New record created successfully";

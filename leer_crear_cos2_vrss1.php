@@ -1,5 +1,6 @@
 <?php
-include 'conexion.php';
+//include 'conexion.php'; // BORRAR
+include 'pg_connection/pg_connection.php';
 /*Autor:Jose Perera
 Gestion de Datos espaciales
 Jefa de Unidad: Luisa Meza, Abril 2017*/
@@ -438,7 +439,12 @@ echo "<h1><center>Previa del XML Generado</center></h1>";
 printf ("<pre>%s</pre>", htmlentities ($doc->saveXML()));
 $ruta_final = '/xampp/htdocs/charter.abae.gob.ve/XML_Charter/'.$date.'/';
 $ruta2 = 'XML_Charter/'.$date.'/';
-$query="insert into xml(nombre,ruta,fecha) value ('$name','$ruta2','$fecha')";
+//$query="insert into xml(nombre,ruta,fecha) value ('$name','$ruta2','$fecha')"; // BORRAR
+$query = "INSERT INTO charter.xml (nombre, ruta, fecha) VALUES (?, ?, ?)";
+$stmt  = $conn->prepare($query);
+if ($stmt->execute([$nombre, $ruta, $fecha]) === false) {
+    echo "ERROR";
+}
 //Ejecutamos la consutla
  mysqli_query($query) or die('Error al procesar consulta: ' . mysqli_error());
 
