@@ -27,12 +27,12 @@ $operationalMode=$_REQUEST['operationalMode'];
 	}*/
 $id=$_REQUEST['id_xml'];
 
-$resultado = mysql_query("SELECT id,nombre,ruta,fecha FROM archivo where id='$id'");
+$resultado = mysqli_query("SELECT id,nombre,ruta,fecha FROM archivo where id='$id'");
 if (!$resultado) {
-    echo 'No se pudo ejecutar la consulta: ' . mysql_error();
+    echo 'No se pudo ejecutar la consulta: ' . mysqli_error();
     exit;
 }
-$fila = mysql_fetch_row($resultado);
+$fila = mysqli_fetch_row($resultado);
 
 $file = $fila['2'];
 
@@ -420,8 +420,8 @@ $BrowseInformation->appendChild ($type);
 $name3;  
 $date=date("Y-m-d H:i:s");
 $query="SELECT *  FROM `charter`.archivo;";
-$result = mysql_query($query) or die('Error al procesar consulta: ' . mysql_error());
-$total = mysql_num_rows($result);
+$result = mysqli_query($query) or die('Error al procesar consulta: ' . mysqli_error());
+$total = mysqli_num_rows($result);
 $extension="xml";
 $fecha = time();
 $fecha  = date("d/m/y",$fecha);
@@ -440,7 +440,7 @@ $ruta_final = '/xampp/htdocs/charter.abae.gob.ve/XML_Charter/'.$date.'/';
 $ruta2 = 'XML_Charter/'.$date.'/';
 $query="insert into xml(nombre,ruta,fecha) value ('$name','$ruta2','$fecha')";
 //Ejecutamos la consutla
- mysql_query($query) or die('Error al procesar consulta: ' . mysql_error());
+ mysqli_query($query) or die('Error al procesar consulta: ' . mysqli_error());
 
 
 ?>

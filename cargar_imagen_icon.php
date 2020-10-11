@@ -22,7 +22,7 @@ if ($archivo) {
   //Creamos nuestra consulta sql
    $query="insert into imagen(nombre,ruta,fecha) value ('$nombre','$ruta','$fecha2')";
    //Ejecutamos la consutla
-   mysql_query($query) or die('Error al procesar consulta: ' . mysql_error());
+   mysqli_query($query) or die('Error al procesar consulta: ' . mysqli_error());
     
     }
 

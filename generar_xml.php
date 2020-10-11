@@ -17,16 +17,16 @@ $query="SELECT id,nombre,ruta,fecha FROM archivo where id='$id'";
       echo "New record created successfully";
     } else {
 	  echo "Error: " . $query . "<br>" . mysqli_error($conn);
-	  echo 'No se pudo ejecutar la consulta: ' . mysql_error();
+	  echo 'No se pudo ejecutar la consulta: ' . mysqli_error();
     }
 
 /*$resultado = mysqli_query("SELECT id,nombre,ruta,fecha FROM archivo where id='$id'");
 if (!$resultado) {
-    echo 'No se pudo ejecutar la consulta: ' . mysql_error();
+    echo 'No se pudo ejecutar la consulta: ' . mysqli_error();
     exit;
 }*/
-//$fila = mysql_fetch_row($resultado);
-$fila = mysql_fetch_row($query);
+//$fila = mysqli_fetch_row($resultado);
+$fila = mysqli_fetch_row($query);
 
 $file = $fila['2'];
 

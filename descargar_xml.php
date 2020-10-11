@@ -3,12 +3,12 @@ include 'conexion.php';
 
 $id=$_GET['id'];
 
-$resultado = mysql_query("SELECT id,nombre,ruta,fecha FROM xml where id='$id'");
+$resultado = mysqli_query("SELECT id,nombre,ruta,fecha FROM xml where id='$id'");
 if (!$resultado) {
-    echo 'No se pudo ejecutar la consulta: ' . mysql_error();
+    echo 'No se pudo ejecutar la consulta: ' . mysqli_error();
     exit;
 }
-$fila = mysql_fetch_row($resultado);
+$fila = mysqli_fetch_row($resultado);
 
 $file = '/xampp/htdocs/charter.abae.gob.ve/'.$fila['2'].$fila['1'];
 
