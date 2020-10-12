@@ -1,6 +1,6 @@
 <?php
 // include 'conexion.php'; // BORRAR
-include 'pg_connection/pg_connection.php';
+include 'connection/connection.php';
 
 $id=$_GET['id'];
 

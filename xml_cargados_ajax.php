@@ -1,7 +1,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/estilo.css" rel="stylesheet">
 <?php
-    include 'pg_connection/pg_connection.php';
+    include 'connection/connection.php';
 
 	// BORRAR
     # conectare la base de datos

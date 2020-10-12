@@ -1,5 +1,5 @@
 <?php
-include 'pg_connection/pg_connection.php';
+include 'connection/connection.php';
 
 error_reporting(0);
 session_start();

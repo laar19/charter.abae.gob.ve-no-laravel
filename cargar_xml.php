@@ -7,7 +7,7 @@
 <?php
 
 //include 'conexion.php';
-include 'pg_connection/pg_connection.php';
+include 'connection/connection.php';
 
 $archivo = (isset($_FILES['archivo'])) ? $_FILES['archivo'] : null;
 if ($archivo) {

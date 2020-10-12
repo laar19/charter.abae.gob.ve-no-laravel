@@ -6,7 +6,7 @@
 	
 
 // include 'conexion.php'; // BORRAR
-include 'pg_connection/pg_connection.php';
+include 'connection/connection.php';
 $id=$_GET['id'];
 
 $stmt = $conn->prepare("SELECT id, nombre, ruta, fecha FROM charter.archivo WHERE id = ?");

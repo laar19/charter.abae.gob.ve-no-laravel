@@ -1,6 +1,6 @@
 <link href="css/estilo.css" rel="stylesheet">
 <?php
-    include 'pg_connection/pg_connection.php';
+    include 'connection/connection.php';
 
     // BORRAR
     /*
