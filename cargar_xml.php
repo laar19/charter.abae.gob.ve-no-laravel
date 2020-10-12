@@ -41,11 +41,14 @@ if ($archivo) {
         echo "ERROR";
     }
 
+    // BORRAR
+    /*
    if (mysqli_query($conn, $query)) {
       echo "New record created successfully";
     } else {
       echo "Error: " . $query . "<br>" . mysqli_error($conn);
     }
+    */
     
     }
     

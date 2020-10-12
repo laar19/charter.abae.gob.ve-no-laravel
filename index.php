@@ -30,7 +30,7 @@
     <div class="row">
         <div class="col-md-offset-4 col-md-4">
             <div class="form-login">
-            <form method="POST" action="login2.php">
+            <form method="POST" action="login.php">
             <center><h4>Ingresar al Sistema.</h4></center>
             <input name="username" type="text" id="user" class="form-control input-sm chat-input" placeholder="Nombre de Usuario" required/>
             </br>
@@ -52,10 +52,12 @@
 
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+
+    <!-- BORRAR -->
+    <!--script src="js/jquery.js"></script-->
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
 
 	</body>
 </html>

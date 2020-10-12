@@ -41,10 +41,18 @@
 
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    
+    <!-- BORRAR -->
+    <!--script src="js/jquery.js"></script-->
+    
+    <script src="jquery-3.2.1/jquery-3.2.1.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- BORRAME -->
+    <!--script src="js/bootstrap.min.js"></script-->
+    
+    <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
 
 	</body>
 </html>

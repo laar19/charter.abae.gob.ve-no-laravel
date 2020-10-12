@@ -10,7 +10,8 @@ if ($archivo) {
      if ($extension_correcta) {
        $date  = date("d_m_y_h.i/");
        $nombre = "preview.jpg";
-       $carpeta = '/xampp/htdocs/charter.abae.gob.ve/img_preview/preview'.$date;
+       //$carpeta = '/xampp/htdocs/charter.abae.gob.ve/img_preview/preview'.$date; // BORRAR
+        $carpeta = 'img_preview/preview'.$date;
     if (!file_exists($carpeta)) {
     mkdir($carpeta, 0777, true);
        }
