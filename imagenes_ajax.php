@@ -1,6 +1,9 @@
 <link href="css/estilo.css" rel="stylesheet">
 <?php
+    include 'pg_connection/pg_connection.php';
 
+    // BORRAR
+    /*
 	# conectare la base de datos
     $con=@mysqli_connect('localhost', 'root', '', 'charter');
     if(!$con){
@@ -9,6 +12,8 @@
     if (@mysqli_connect_errno()) {
         die("Connect failed: ".mysqli_connect_errno()." : ". mysqli_connect_error());
     }
+    */
+
 	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
 	if($action == 'ajax'){
 		include 'pagination.php'; //incluir el archivo de paginación
@@ -18,12 +23,28 @@
 		$adjacents  = 4; //brecha entre páginas después de varios adyacentes
 		$offset = ($page - 1) * $per_page;
 		//Cuenta el número total de filas de la tabla*/
+        $stmt = $conn->prepare("SELECT count(*) AS numrows FROM charter.imagen");
+        if ($stmt->execute() === false) {
+            echo "ERROR";
+        }
+        $row = $stmt->fetch());
+        $numrows = $row['numrows'];
+        
+        // BORRAR
+        /*
 		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM imagen ");
 		if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
+        */
+        
 		$total_pages = ceil($numrows/$per_page);
 		$reload = 'lista_imagenes_cargadas.php';
 		//consulta principal para recuperar los datos
-		$query = mysqli_query($con,"SELECT * FROM imagen  order by id desc LIMIT $offset,$per_page");
+        $stmt = $conn->prepare("SELECT * FROM charter.imagen ORDER BY id DESC LIMIT ?, ?");
+        if ($stmt->execute([$offset, $per_page]) === false) {
+            echo "ERROR";
+        }
+        
+		//$query = mysqli_query($con,"SELECT * FROM imagen  order by id desc LIMIT $offset,$per_page"); // BORRAR
 		
 		if ($numrows>0){
 			?>
@@ -39,7 +60,8 @@
 			</thead>
 			<tbody class="buscar">
 			<?php
-			while($row = mysqli_fetch_array($query)){
+            while ($row = $stmt->fetch()) {
+			//while($row = mysqli_fetch_array($query)){ // BORRAR
 
 			$id_img=$row['id'];
 				?>

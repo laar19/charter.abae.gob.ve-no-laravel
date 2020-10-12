@@ -1,8 +1,18 @@
 <?php
-include 'conexion.php';
+// include 'conexion.php'; // BORRAR
+include 'pg_connection/pg_connection.php';
 
 $id=$_GET['id'];
 
+$stmt = $conn->prepare("SELECT id, nombre, ruta, fecha FROM charter.xml WHERE id = ?");
+if ($stmt->execute([$id]) === false) {
+    echo "ERROR";
+}
+$fila = $stmt->fetch();
+$file = '/xampp/htdocs/charter.abae.gob.ve/'.$fila['2'].$fila['1']; // OJO CON ESTO
+
+// BORRAR
+/*
 $resultado = mysqli_query("SELECT id,nombre,ruta,fecha FROM xml where id='$id'");
 if (!$resultado) {
     echo 'No se pudo ejecutar la consulta: ' . mysqli_error();
@@ -11,6 +21,7 @@ if (!$resultado) {
 $fila = mysqli_fetch_row($resultado);
 
 $file = '/xampp/htdocs/charter.abae.gob.ve/'.$fila['2'].$fila['1'];
+*/
 
 if (file_exists($file)) {
     header('Content-Description: File Transfer');

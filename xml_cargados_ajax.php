@@ -1,8 +1,11 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/estilo.css" rel="stylesheet">
 <?php
+    include 'pg_connection/pg_connection.php';
 
-	# conectare la base de datos
+	// BORRAR
+    # conectare la base de datos
+    /*
     $con=@mysqli_connect('localhost', 'root', 'root', 'charter');
     if(!$con){
         die("imposible conectarse: ".mysqli_error($con));
@@ -10,6 +13,8 @@
     if (@mysqli_connect_errno()) {
         die("Connect failed: ".mysqli_connect_errno()." : ". mysqli_connect_error());
     }
+    */
+
 	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
 	if($action == 'ajax'){
 		include 'pagination.php'; //incluir el archivo de paginación
@@ -19,12 +24,28 @@
 		$adjacents  = 4; //brecha entre páginas después de varios adyacentes
 		$offset = ($page - 1) * $per_page;
 		//Cuenta el número total de filas de la tabla*/
+        $stmt = $conn->prepare("SELECT count(*) AS numrows FROM charter.archivo");
+        if ($stmt->execute() === false) {
+            echo "ERROR";
+        }
+        $row = $stmt->fetch();
+        $numrows = $row['numrows'];
+        
+        // BORRAR
+        /*
 		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM archivo ");
 		if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
+        */
+        
 		$total_pages = ceil($numrows/$per_page);
 		$reload = 'lista_xml_cargados.php';
 		//consulta principal para recuperar los datos
-		$query = mysqli_query($con,"SELECT * FROM archivo  order by id desc LIMIT $offset,$per_page");
+        $stmt = $conn->prepare("SELECT * FROM charter.archivo ORDER BY id DESC OFFSET ? LIMIT ?");
+        if ($stmt->execute([$offset, $per_page]) === false) {
+            echo "ERROR";
+        }
+        
+		// $query = mysqli_query($con,"SELECT * FROM archivo  order by id desc LIMIT $offset,$per_page"); // BORRAR
 		
 		if ($numrows>0){
 			?>
@@ -41,7 +62,8 @@
 			</thead>
 			<tbody class="buscar">
 			<?php
-			while($row = mysqli_fetch_array($query)){
+			while ($row = $stmt->fetch()) {
+			//while($row = mysqli_fetch_array($query)){ // BORRAR
 
 			$id_xml=$row['id'];
 

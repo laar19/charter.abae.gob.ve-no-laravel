@@ -28,6 +28,15 @@ $operationalMode=$_REQUEST['operationalMode'];
 	}*/
 $id=$_REQUEST['id_xml'];
 
+$stmt = $conn->prepare("SELECT id, nombre, ruta, fecha FROM charter.archivo WHERE id = ?");
+if ($stmt->execute([$id]) === false) {
+    echo "ERROR";
+}
+$fila = $stmt->fetch();
+$file = $fila[2];
+
+// BORRAR
+/*
 $resultado = mysqli_query("SELECT id,nombre,ruta,fecha FROM archivo where id='$id'");
 if (!$resultado) {
     echo 'No se pudo ejecutar la consulta: ' . mysqli_error();
@@ -36,6 +45,7 @@ if (!$resultado) {
 $fila = mysqli_fetch_row($resultado);
 
 $file = $fila['2'];
+*/
 
 
 //print_r($_POST);
@@ -420,9 +430,10 @@ $BrowseInformation->appendChild ($type);
 //Guardo el documento con el nombre vrss1.xml en la misma raiz donde tengo el codigo de ejecucion
 $name3;  
 $date=date("Y-m-d H:i:s");
-$query="SELECT *  FROM `charter`.archivo;";
-$result = mysqli_query($query) or die('Error al procesar consulta: ' . mysqli_error());
-$total = mysqli_num_rows($result);
+
+// $query="SELECT *  FROM `charter`.archivo;"; BORRAR NO SE USA
+//$result = mysqli_query($query) or die('Error al procesar consulta: ' . mysqli_error()); // BORRAR NO SE USA
+//$total = mysqli_num_rows($result); // BORRAR NO SE USA
 $extension="xml";
 $fecha = time();
 $fecha  = date("d/m/y",$fecha);

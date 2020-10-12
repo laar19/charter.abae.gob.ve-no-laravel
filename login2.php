@@ -1,6 +1,11 @@
 <?php
+include 'pg_connection/pg_connection.php';
+
 error_reporting(0);
 session_start();
+
+// BORRAR
+/*
 $con = new mysqli("localhost", "root", "root", "charter");
 if ($con->connect_errno)
 {
@@ -8,6 +13,8 @@ if ($con->connect_errno)
   exit();
 }
 @mysqli_query($con, "SET NAMES 'utf8'");
+*/
+
 if ($_POST['username'] == null || $_POST['pass'] == null)
 {
     echo '<script>location.href = "session_incorrecta.php"</script>';
@@ -15,10 +22,20 @@ if ($_POST['username'] == null || $_POST['pass'] == null)
 }
 else
 {
-    $user = mysqli_real_escape_string($con, $_POST['username']);
-    $pass = mysqli_real_escape_string($con, $_POST['pass']);
-    $consulta = mysqli_query($con, "SELECT username, pass FROM usuario WHERE username = '$user' AND pass = '$pass'");
-    if (mysqli_num_rows($consulta) > 0)
+    $user = $_POST['username'];
+    $pass = $_POST['pass'];
+    //$user = mysqli_real_escape_string($con, $_POST['username']); // BORRAR
+    //$pass = mysqli_real_escape_string($con, $_POST['pass']); // BORRAR
+    $stmt = $conn->prepare("SELECT username, pass AS numrows FROM charter.usuario WHERE username = ? AND pass = ?");
+    if ($stmt->execute([$user, $pass]) === false) {
+        echo "ERROR";
+    }
+    $row = $stmt->fetch();
+    $numrows = $row['numrows'];
+    
+    //$consulta = mysqli_query($con, "SELECT username, pass FROM usuario WHERE username = '$user' AND pass = '$pass'"); // BORRAR
+    // if (mysqli_num_rows($consulta) > 0) // BORRAR
+    if ($numrows > 0)
     {
         $_SESSION["usuario"] = $user;
         echo '<center><img src="imagenes/Cintillo Julio 2017.PNG" ></center><br><br><br><br><br><br><center><img src="imagenes/boton_correcto.PNG" > <br><br><h2>BIENVENIDO <br>"'.$_SESSION['usuario'].'"<h2> <p>';

@@ -5,20 +5,31 @@
 
 	
 
-include 'conexion.php';
+// include 'conexion.php'; // BORRAR
+include 'pg_connection/pg_connection.php';
 $id=$_GET['id'];
 
-$query="SELECT id,nombre,ruta,fecha FROM archivo where id='$id'";
+$stmt = $conn->prepare("SELECT id, nombre, ruta, fecha FROM charter.archivo WHERE id = ?");
+if ($stmt->execute([$id]) === false) {
+    echo "ERROR";
+}
+$fila = $stmt->fetch();
+$file = $fila[2];
+
+// $query="SELECT id,nombre,ruta,fecha FROM archivo where id='$id'"; // BORRAR
    //$db      = 'charter';
    //Ejecutamos la consutla
    //mysqli_query($query,$conn) or die('Error al procesar consulta: ' . mysqli_error());
 
+// BORRAR
+/*
    if (mysqli_query($conn, $query)) {
       echo "New record created successfully";
     } else {
 	  echo "Error: " . $query . "<br>" . mysqli_error($conn);
 	  echo 'No se pudo ejecutar la consulta: ' . mysqli_error();
     }
+*/
 
 /*$resultado = mysqli_query("SELECT id,nombre,ruta,fecha FROM archivo where id='$id'");
 if (!$resultado) {
@@ -26,9 +37,13 @@ if (!$resultado) {
     exit;
 }*/
 //$fila = mysqli_fetch_row($resultado);
+
+// BORAR
+/*
 $fila = mysqli_fetch_row($query);
 
 $file = $fila['2'];
+*/
 
 ?>
  <!DOCTYPE html>
