@@ -1,5 +1,6 @@
- <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="css/estilo.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/main.css" rel="stylesheet">
+
 <?php
     include 'connection/connection.php';
 
@@ -49,55 +50,57 @@
 		
 		if ($numrows>0){
 			?>
-		<table class="table table-hover">
-			  <thead>
-				<tr>
-				<th>Id</th>       
-                <th>Nombre del Archivo</th>
-                <th>Fecha de Carga</th>
-                <th>Nombre de la Carpeta</th>
-                <th>Descargar</th>
-                <th>Generar</th>
-                </tr>
-			</thead>
-			<tbody class="buscar">
-			<?php
-			while ($row = $stmt->fetch()) {
-			//while($row = mysqli_fetch_array($query)){ // BORRAR
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>       
+                        <th>Nombre del Archivo</th>
+                        <th>Fecha de Carga</th>
+                        <th>Nombre de la Carpeta</th>
+                        <th>Descargar</th>
+                        <th>Generar</th>
+                    </tr>
+                </thead>
+                <tbody class="buscar">
+                    <?php
+                        while ($row = $stmt->fetch()) {
+                            //while($row = mysqli_fetch_array($query)){ // BORRAR
+                            $id_xml=$row['id'];
+                            $ruta  = $row['ruta'];
+                            $ruta_desglo = explode(" ", $ruta);
+                            $resultados= substr($ruta_desglo[0] , 0 , 11 ) ;
+				    ?>
 
-			$id_xml=$row['id'];
-
-			$ruta  = $row['ruta'];
-                      $ruta_desglo = explode(" ", $ruta);
-                      $resultados= substr($ruta_desglo[0] , 0 , 11 ) ;
-				?>
-
-				<tr>
-					<td><?php echo $row['id'];?></td>
-					<td><?php echo $row['nombre'];?></td>
-					<td><?php echo $row['fecha'];?></td>
-					<td><?php echo $resultados;?></td>
-					<td width='150'><form action method='GET'><a href='descargar_xml_miranda.php?id=<?php echo $id_xml;?>' class='glyphicon glyphicon-floppy-save' > XML_VRSS1</a></td>
-					<td width='150'><form action method='GET'><a href='generar_xml.php?id=<?php echo $id_xml;?>&status=0' name=id class='glyphicon glyphicon-repeat' > XML_COS2</a></td>
-				</tr>
-				<?php
-			}
-			?>
-			</tbody>
-		</table>
-		<div class="table-pagination pull-right">
-			<?php echo paginate($reload, $page, $total_pages, $adjacents);?>
-		</div>
-		
-			<?php
-			
-		} else {
+                    <tr>
+                        <td><?php echo $row['id'];?></td>
+                        <td><?php echo $row['nombre'];?></td>
+                        <td><?php echo $row['fecha'];?></td>
+                        <td><?php echo $resultados;?></td>
+                        <td width='150'>
+                            <form action method='GET'>
+                                <a href='descargar_xml_miranda.php?id=<?php echo $id_xml;?>' class='glyphicon glyphicon-floppy-save' > XML_VRSS1</a>
+                            </form>
+                        </td>
+                        <td width='150'>
+                            <form action method='GET'><a href='generar_xml.php?id=<?php echo $id_xml;?>&status=0' name=id class='glyphicon glyphicon-repeat' > XML_COS2</a>
+                            </form>
+                        </td>
+                    </tr>
+				    <?php } ?>
+                </tbody>
+            </table>
+            <div class="table-pagination pull-right">
+                <?php echo paginate($reload, $page, $total_pages, $adjacents); ?>
+            </div>
+            <?php
+                }
+                else {
 			?>
 			<div class="alert alert-warning alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h4>Aviso!!!</h4> No hay datos para mostrar
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4>Aviso!!!</h4> No hay datos para mostrar
             </div>
 			<?php
-		}
-	}
-?>
+                }
+            }
+            ?>
