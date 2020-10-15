@@ -25,7 +25,8 @@
 
     $id=$_REQUEST['id_xml'];
 
-    $stmt = $conn->prepare("SELECT id, nombre, ruta, fecha FROM charter.archivo WHERE id = ?");
+    $query = "SELECT id, nombre, ruta, fecha FROM charter.xml_original WHERE id = ?";
+    $stmt = $conn->prepare($query);
     if ($stmt->execute([$id]) === false) {
         echo "ERROR";
     }
@@ -427,7 +428,7 @@
     $ruta_final = '/xampp/htdocs/charter.abae.gob.ve/XML_Charter/'.$date.'/';
     $ruta2 = 'XML_Charter/'.$date.'/';
     //$query="insert into xml(nombre,ruta,fecha) value ('$name','$ruta2','$fecha')"; // BORRAR
-    $query = "INSERT INTO charter.xml (nombre, ruta, fecha) VALUES (?, ?, ?)";
+    $query = "INSERT INTO charter.xml_generado (nombre, ruta, fecha) VALUES (?, ?, ?)";
     $stmt  = $conn->prepare($query);
     if ($stmt->execute([$nombre, $ruta, $fecha]) === false) {
         echo "ERROR";

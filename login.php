@@ -24,7 +24,8 @@
         $pass = $_POST['pass'];
         //$user = mysqli_real_escape_string($con, $_POST['username']); // BORRAR
         //$pass = mysqli_real_escape_string($con, $_POST['pass']); // BORRAR
-        $stmt = $conn->prepare("SELECT username, pass AS numrows FROM charter.usuario WHERE username = ? AND pass = ?");
+        $query = "SELECT username, pass AS numrows FROM charter.usuario WHERE username = ? AND pass = ?";
+        $stmt = $conn->prepare($query);
         if ($stmt->execute([$user, $pass]) === false) {
             echo "ERROR";
         }
@@ -35,7 +36,7 @@
         // if (mysqli_num_rows($consulta) > 0) // BORRAR
         if ($numrows > 0) {
             $_SESSION["usuario"] = $user;
-            echo '<center><img src="img/cintillo-julio-2017.png" ></center><br><br><br><br><br><br><center><img src="img/boton_correcto.PNG" > <br><br><h2>BIENVENIDO <br>"'.$_SESSION['usuario'].'"<h2> <p>';
+            echo '<center><img src="img/cintillo-julio-2017.png" ></center><br><br><br><br><br><br><center><img src="img/Boton_correcto.png" > <br><br><h2>BIENVENIDO <br>"'.$_SESSION['usuario'].'"<h2> <p>';
             
             echo '<script> 
                 function redireccionar(){

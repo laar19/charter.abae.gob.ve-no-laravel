@@ -43,7 +43,7 @@
                             <li class="dropdown">
                                 <li>
                                     <a href="#" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
-                                        <span class="glyphicon glyphicon-upload"></span> Subir Archivos <span class="caret"></span>
+                                        <span class="fa fa-upload"></span> Subir Archivos <span class="caret"></span>
                                     </a>
                                     <div class="collapse" id="toggleDemo2" style="height: 0px;">
                                         <ul class="nav nav-list">
@@ -55,7 +55,7 @@
                                 </li>
                                 <li>
                                     <a href="#" data-toggle="collapse" data-target="#toggleDemo1" data-parent="#sidenav01" class="collapsed">
-                                        <span class="glyphicon glyphicon-refresh"></span> Procesos <span class="caret"></span>
+                                        <span class="fa fa-retweet"></span> Procesos <span class="caret"></span>
                                     </a>
                                     <div class="collapse" id="toggleDemo1" style="height: 0px;">
                                         <ul class="nav nav-list">
@@ -65,7 +65,7 @@
                                 </li>
                                 <li>
                                     <a href="#" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
-                                        <span class="glyphicon glyphicon-download-alt"></span> Descargas <span class="caret"></span>
+                                        <span class="fa fa-download"></span> Desacargas <span class="caret"></span>
                                     </a>
                                     <div class="collapse" id="toggleDemo3" style="height: 0px;">
                                         <ul class="nav nav-list">
@@ -76,11 +76,11 @@
                                 </li>
                             <li>
                                 <a href="#" data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
-                                    <span class="glyphicon glyphicon-log-out"></span> Salir <span class="caret"></span>
+                                    <span class="fa fa-times-circle"></span> Salir<span class="caret"></span>
                                 </a>
                                 <div class="collapse" id="toggleDemo4" style="height: 0px;">
                                     <ul class="nav nav-list">
-                                        <li><a href="logout.php?salir=cerrar"> <span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+                                        <li><a href="logout.php?salir=cerrar">Log out</a></li>
                                     </ul>
                                 </div>
                             </li>

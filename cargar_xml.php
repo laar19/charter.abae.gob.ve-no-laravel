@@ -1,51 +1,28 @@
 <?php
-    //include 'conexion.php'; // BORRAR
     include 'connection/connection.php';
 
     $archivo = (isset($_FILES['archivo'])) ? $_FILES['archivo'] : null;
     
     if ($archivo) {
-       $extension = pathinfo($archivo['name'], PATHINFO_EXTENSION);
-       $extension = strtolower($extension);
-       $extension_correcta = ($extension == 'xml');
+        $myfile = fopen($archivo['tmp_name'], "r") or die("Unable to open file!");
+        $contenido_xml = fread($myfile, filesize($archivo['tmp_name']));
+        fclose($myfile);
+        
+        $extension = pathinfo($archivo['name'], PATHINFO_EXTENSION);
+        $extension = strtolower($extension);
+        $extension_correcta = ($extension == 'xml');
      
         if ($extension_correcta) {
-           $date  = date("d_m_y_h.i/");
-           $nombre = $archivo['name'];
-           //$carpeta = '/xampp/htdocs/charter.abae.gob.ve/XML_Miranda/'.$date;
-           $carpeta = 'XML_Miranda/'.$date;
-    
-            if (!file_exists($carpeta)) {
-                mkdir($carpeta, 0777, true);
-            }
-       
-            $ruta_destino_archivo = $carpeta .$nombre;
-            $archivo_ok = move_uploaded_file($archivo['tmp_name'], $ruta_destino_archivo);
-            $ruta = 'XML_Miranda/'.$date.$nombre;
-            $fecha = time();
-            $fecha2 = date("d/m/Y",$fecha);
-                    
-            //mysqli_select_db('charter') or die('No pudo selecionar la BD');
-            //Creamos nuestra consulta sql
-            //$query="insert into archivo(nombre,ruta,fecha) value ('$nombre','$ruta','$fecha2')"; // BORRAR
-            //$db      = 'charter';
-            //Ejecutamos la consutla
-            //mysqli_query($query,$conn) or die('Error al procesar consulta: ' . mysqli_error());
-         
-            $query = "INSERT INTO charter.archivo (nombre, ruta, fecha) VALUES (?, ?, ?)";
+            $nombre = $archivo['name'];
+            
+            $query = "INSERT INTO charter.xml_original (nombre, fecha, contenido_xml) VALUES (?, CURRENT_TIMESTAMP, ?)";
             $stmt  = $conn->prepare($query);
-            if ($stmt->execute([$nombre, $ruta, $fecha2]) === false) {
-                echo "ERROR";
+            if ($stmt->execute([$nombre, $contenido_xml]) === false) {
+                echo "ERROR 1";
             }
-
-            // BORRAR
-            /*
-           if (mysqli_query($conn, $query)) {
-              echo "New record created successfully";
-            } else {
-              echo "Error: " . $query . "<br>" . mysqli_error($conn);
-            }
-            */
+            
+            $lastId = $conn->lastInsertId();
+            echo "LAST ID = " . $lastId;
         }
     }
 ?>
@@ -98,11 +75,7 @@
                             <?php if (isset($archivo)): ?>
                                 <?php if (!$extension_correcta): ?>
                                     
-                                    <span style="color: #f00;"> La extensión es incorrecta, el archivo debe ser xml . </span> 
-                                
-                                <?php elseif (!$archivo_ok): ?>
-         
-                                    <span style="color: #f00;"> Error al intentar subir el archivo. </span>
+                                    <span style="color: #f00;"> La extensión es incorrecta, el archivo debe ser xml . </span>
                             
                                 <?php else: ?>
                                     

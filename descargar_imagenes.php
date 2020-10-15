@@ -3,7 +3,8 @@
 
     $id=$_GET['id'];
 
-    $stmt = $conn->prepare("SELECT id, nombre, ruta, fecha FROM charter.imagen WHERE id = ?");
+    $query = "SELECT id, nombre, ruta, fecha FROM charter.imagen WHERE id = ?";
+    $stmt = $conn->prepare($query);
     if ($stmt->execute([$id]) === false) {
         echo "ERROR";
     }

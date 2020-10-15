@@ -26,7 +26,8 @@
 		$offset = ($page - 1) * $per_page;
 		
         //Cuenta el número total de filas de la tabla
-        $stmt = $conn->prepare("SELECT count(*) AS numrows FROM charter.imagen");
+        $query = "SELECT count(*) AS numrows FROM charter.imagen";
+        $stmt = $conn->prepare($query);
         if ($stmt->execute() === false) {
             echo "ERROR";
         }
@@ -42,7 +43,8 @@
 		$total_pages = ceil($numrows/$per_page);
 		$reload = 'lista_imagenes_cargadas.php';
 		//consulta principal para recuperar los datos
-        $stmt = $conn->prepare("SELECT * FROM charter.imagen ORDER BY id DESC OFFSET ? LIMIT ?");
+        $query = "SELECT * FROM charter.imagen ORDER BY id DESC OFFSET ? LIMIT ?";
+        $stmt = $conn->prepare($query);
         if ($stmt->execute([$offset, $per_page]) === false) {
             echo "ERROR";
         }

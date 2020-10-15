@@ -5,7 +5,8 @@
     include 'connection/connection.php';
     $id=$_GET['id'];
 
-    $stmt = $conn->prepare("SELECT id, nombre, ruta, fecha FROM charter.archivo WHERE id = ?");
+    $query = "SELECT id, nombre, ruta, fecha FROM charter.xml_original WHERE id = ?";
+    $stmt = $conn->prepare($query);
     if ($stmt->execute([$id]) === false) {
         echo "ERROR";
     }

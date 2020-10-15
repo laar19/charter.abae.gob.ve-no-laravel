@@ -4,7 +4,8 @@
 
     $id=$_GET['id'];
 
-    $stmt = $conn->prepare("SELECT id, nombre, ruta, fecha FROM charter.xml WHERE id = ?");
+    $query = "SELECT id, nombre, ruta, fecha FROM charter.xml_generado WHERE id = ?";
+    $stmt = $conn->prepare($query);
     if ($stmt->execute([$id]) === false) {
         echo "ERROR";
     }

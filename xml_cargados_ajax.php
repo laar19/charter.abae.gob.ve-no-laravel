@@ -25,7 +25,8 @@
 		$adjacents  = 4; //brecha entre páginas después de varios adyacentes
 		$offset = ($page - 1) * $per_page;
 		//Cuenta el número total de filas de la tabla*/
-        $stmt = $conn->prepare("SELECT count(*) AS numrows FROM charter.archivo");
+        $query = "SELECT count(*) AS numrows FROM charter.xml_original";
+        $stmt = $conn->prepare($query);
         if ($stmt->execute() === false) {
             echo "ERROR";
         }
@@ -41,7 +42,8 @@
 		$total_pages = ceil($numrows/$per_page);
 		$reload = 'lista_xml_cargados.php';
 		//consulta principal para recuperar los datos
-        $stmt = $conn->prepare("SELECT * FROM charter.archivo ORDER BY id DESC OFFSET ? LIMIT ?");
+        $query = "SELECT * FROM charter.xml_original ORDER BY id DESC OFFSET ? LIMIT ?";
+        $stmt = $conn->prepare($query);
         if ($stmt->execute([$offset, $per_page]) === false) {
             echo "ERROR";
         }
