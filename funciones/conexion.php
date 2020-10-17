@@ -1,5 +1,5 @@
 <?php
-    require_once "credenciales.php";
+    require_once "datos.php";
      
     $pg_credentials = "pgsql:host=$Pg_credentials->host;port=5432;dbname=$Pg_credentials->db;user=$Pg_credentials->username;password=$Pg_credentials->password";
      

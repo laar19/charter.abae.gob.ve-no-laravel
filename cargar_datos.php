@@ -1,5 +1,6 @@
 <?php
-    include "funciones/conexion/conexion.php";
+    include "funciones/datos.php";
+    include "funciones/conexion.php";
     include "funciones/funciones.php";
     include "funciones/generar_xml_charter.php";
 
@@ -16,18 +17,18 @@
         
         $xml_charter = generar_xml_charter($xml_original);
      
-        if ($flag == 1) {
-            $ruta    = "IMAGENE_SUBIDAS/";
+        if ($flag==1) {
             $date    = date("d-m-y-h.i");
             $hash    = hash("md5", $archivo_xml["name"]);
-            $carpeta = $ruta.$date."-".$hash;
+            $carpeta = $date."-".$hash;
+            $carpeta_subida = $ruta.$date."-".$hash;
             
-            $ruta_icon       = copia_archivo($carpeta, $hash, $date, $imagen_icon, "icon.jpg");
-            $ruta_preview    = copia_archivo($carpeta, $hash, $date, $imagen_preview, "preview.jpg");
+            copia_archivo($carpeta_subida, $hash, $date, $imagen_icon, "icon");
+            copia_archivo($carpeta_subida, $hash, $date, $imagen_preview, "preview");
             
-            $query = "INSERT INTO charter.archivo (nombre_carpeta, xml_original, xml_charter, ruta_icon, ruta_preview, fecha) VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)";
+            $query = "INSERT INTO charter.archivos (nombre_carpeta, xml_original, xml_charter, fecha) VALUES (?, ?, ?, CURRENT_TIMESTAMP)";
             $stmt  = $conn->prepare($query);
-            if ($stmt->execute([$carpeta, $xml_original, $xml_charter, $ruta_icon, $ruta_preview]) === false) {
+            if ($stmt->execute([$carpeta, $xml_original, $xml_charter]) === false) {
                 echo "ERROR";
             }
         }
@@ -39,43 +40,34 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-        <title> Subir XML </title>
+        <title> Cargar datos </title>
+        
+        <link href="css/main.css" rel="stylesheet">
  
         <!-- Bootstrap Core CSS -->
-        <!-- BORRAR -->
-        <!--link href="bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet"-->
         <link href="css/bootstrap.min.css" rel="stylesheet">
-    
-        <link href="css/main.css" rel="stylesheet">
     </head>
  
     <?php include "menu.php"; ?>
     
     <body>
-        <center>
-            <!--img src="img/horizontal-fondo-blanco.png" -->
-            
+        <center>            
             <div class="container">
                 <div class="row">
                     <div class="col-md-offset-4 col-md-5">
                         <div class="form-login">
                             <form method="post" action="cargar_datos.php" enctype="multipart/form-data">
-                                <!--img src="img/flecha_ascenso2.jpg" alt="Archivos"-->
                                 <label> Seleccione el archivo .XML </label>
-                                <input type="file" name="archivo_xml" required="required" /> <br><br>
-                                
-                                <label> Seleccione la imagen preview </label>
-                                <input type="file" name="imagen_preview" required="required" /><br><br>
+                                <input type="file" name="archivo_xml" required="required"/> <br><br>
                                 
                                 <label> Seleccione el icon </label>
-                                <input type="file" name="icon" required="required" /><br><br>
+                                <input type="file" name="icon" required="required"/><br><br>
                                 
-                                <br><br>
+                                <label> Seleccione la imagen preview </label>
+                                <input type="file" name="imagen_preview" required="required"/><br><br>
                                 
-                                <input  class="btn btn-info btn-md" type="submit" value="Subir Archivo" />
+                                <input  class="btn btn-info btn-md" type="submit" value="Subir Archivos"/>
                             </form>
-                            
-                            <br><br>
                             
                             <?php if(isset($archivo_xml) and isset($imagen_preview) and isset($imagen_icon)): ?>
                                 <?php if(!valida_archivo($archivo_xml["name"], "xml")): ?>
@@ -86,14 +78,8 @@
                                         <?php endif ?>
                                     <?php endif ?>
                                 <?php else: ?>
-                                    <strong> Los archivos se han subido correctamente. </strong>
                                     <script>
-                                        /*
-                                        function redireccionar() {
-                                            window.location="cargar_datos.php";
-                                        }
-                                        setTimeout ("redireccionar()", 3000);
-                                        */
+                                        alert("Los archivos se han subido correctamente");
                                     </script>
                                 <?php endif ?>
                             <?php endif; ?>
@@ -104,16 +90,9 @@
         </center>
         
         <!-- jQuery -->
-        <!-- BORRAR -->
-        <!--script src="jquery-3.2.1/jquery-3.2.1.min.js"></script-->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <!-- BORRAR -->
-        <!--script src="bootstrap-3.3.7/js/bootstrap.min.js"></script-->
-        <script src="//cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-        <!-- js -->
-        <script src="js/main.js"></script>        
+        <script src="js/bootstrap.min.js"></script>  
     </body>
 </html>

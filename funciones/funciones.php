@@ -13,14 +13,12 @@
             mkdir($carpeta, 0755, true); // Everything for owner, read and execute for others
         }
        
-        $ruta_destino_archivo = $carpeta."/".$date."-".$hash."-".$nombre;
+        $ruta_destino_archivo = $carpeta."/".$date."-".$hash."-".$nombre."-".$archivo["name"];
         $upload = move_uploaded_file(strval($archivo["tmp_name"]), strval($ruta_destino_archivo));
         if(!$upload) {
             echo "<script>
                         alert('Error al subir la imágen');
                 </script>";
         }
-        
-        return $ruta_destino_archivo;
     }
 ?>

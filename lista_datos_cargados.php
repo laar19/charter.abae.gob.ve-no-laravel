@@ -5,73 +5,63 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Listado de Imágenes</title>
+        <title>Listado de archivos cargados</title>
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-        
         <link href="css/main.css" rel="stylesheet">
+        
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
     </head>
-    
-    <?php
-        include "menu.php";
-    ?>
-    
+  
+    <?php include "menu.php"; ?>
+
     <body>
         <div class="container">
-            
-            <br>
-            
-            <center><img src="img/horizontal-fondo-blanco.png" ></center>
+            <center><h2>Descargar datos</h2></center> 
 
-            <center><h2>Imágenes Cargadas</h2></center>
-            <!-- Buscador -->
             <div class="input-group">
-                <span class="input-group-addon" >Buscar</span>
-                <input id="filtrar" type="text" class="form-control"  placeholder="Ingresar parametro...">
+                <span class="input-group-addon">Buscar</span>
+                <input id="filtrar" type="text" class="form-control" placeholder="Ingresar el parametro...">
             </div>
             
             <br>
 
             <div class="panel panel-primary">
                 <div class="panel-heading">         
-                    <h3 class="panel-title">Lista de Imágenes Cargadas</h3>
-                    <!-- BORRAR -->
-                    <!--div id="loader" class="text-center"> <img src="loader.gif"></div-->
+                    <h3 class="panel-title">Lista de archivos cargados</h3>
                     <div id="loader" class="text-center"></div>
                 </div>
                 
                 <br>
-              
+                
                 <div class="outer_div"></div>
             </div>
         </div>
     
         <!-- jQuery (necessary for Bootstrap"s JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  
+        
         <!-- Latest compiled and minified JavaScript -->
         <!-- BORRAR -->
         <!--script src="bootstrap-3.3.7/js/bootstrap.min.js"></script-->
-        <script src="//cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         
         <script>
             /*carga de la pagina*/
-            $(document).ready(function(){
+            $(document).ready(function() {
                 load(1);
             });
 
             function load(page){
-                var parametros = {"action":"ajax","page":page};
+                var parametros = {
+                    "action":"ajax","page":page
+                };
                 $("#loader").fadeIn("slow");
                 $.ajax({
-                    url:"imagenes_ajax.php",
+                    url:"datos_cargados_ajax.php",
                     data: parametros,
-                    beforeSend: function(objeto){
-                        //$("#loader").html("<img src="loader.gif">"); // BORRAR
+                    beforeSend: function(objeto) {
+                        //$("#loader").html("<img src="loader.gif">");
                         $("#loader").html();
                     },
                     success:function(data){
@@ -94,7 +84,7 @@
                         }).show();
                     })
                 }(jQuery));
-            });
+            }); 
         </script>
     </body>
 </html>
