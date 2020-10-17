@@ -22,7 +22,7 @@
             <center><img src="img/cintillo-julio-2017.png" ><br><td colspan="" align="right"></td></center>
         </header><br><br><br>
  
-        <div class="col-md-12" id='menu'>
+        <div class="col-md-12" id="menu">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -46,7 +46,7 @@
                                         <ul class="nav nav-list">
                                             <li><a href="subir_imagen.php">Subir Preview</a></li>
                                             <li><a href="cargar_imagen_icon.php">Subir Icon</a></li>
-                                            <li><a href="cargar_xml.php">Subir Xml del VRSS1</a></li>
+                                            <li><a href="cargar_datos.php">Subir Xml del VRSS1</a></li>
                                         </ul>
                                     </div>
                                 </li>

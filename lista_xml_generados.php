@@ -16,7 +16,7 @@
         <link href="css/main.css" rel="stylesheet">
     </head>
 
-    <?php include 'menu.php'; ?>
+    <?php include "menu.php"; ?>
 
     <body>
         <div class="container">
@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!-- jQuery (necessary for Bootstrap"s JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         
         <!-- Latest compiled and minified JavaScript -->
@@ -63,16 +63,16 @@
 
             function load(page){
                 var parametros = {"action":"ajax","page":page};
-                $("#loader").fadeIn('slow');
+                $("#loader").fadeIn("slow");
                 $.ajax({
-                    url:'xml_ajax.php',
+                    url:"xml_ajax.php",
                     data: parametros,
                     beforeSend: function(objeto){
-                        //$("#loader").html("<img src='loader.gif'>"); // BORRAR
+                        //$("#loader").html("<img src="loader.gif">"); // BORRAR
                         $("#loader").html();
                     },
                     success:function(data){
-                        $(".outer_div").html(data).fadeIn('slow');
+                        $(".outer_div").html(data).fadeIn("slow");
                         $("#loader").html("");
                     }
                 })
@@ -83,10 +83,10 @@
             /*Buscador*/
             $(document).ready(function () {
                 (function ($) {
-                    $('#filtrar').keyup(function () {
-                        var rex = new RegExp($(this).val(), 'i');
-                        $('.buscar tr').hide();
-                        $('.buscar tr').filter(function () {
+                    $("#filtrar").keyup(function () {
+                        var rex = new RegExp($(this).val(), "i");
+                        $(".buscar tr").hide();
+                        $(".buscar tr").filter(function () {
                             return rex.test($(this).text());
                         }).show();
                     })

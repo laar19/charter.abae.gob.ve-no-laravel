@@ -1,24 +1,24 @@
 <?php
-    //include 'conexion.php'; // BORRAR
-    include 'connection/connection.php';
+    //include "conexion.php"; // BORRAR
+    include "funciones/conexion/conexion.php";
 
-    $archivo = (isset($_FILES['archivo'])) ? $_FILES['archivo'] : null;
+    $archivo = (isset($_FILES["archivo"])) ? $_FILES["archivo"] : null;
     
     if ($archivo) {
-       $extension = pathinfo($archivo['name'], PATHINFO_EXTENSION);
+       $extension = pathinfo($archivo["name"], PATHINFO_EXTENSION);
        $extension = strtolower($extension);
-       $extension_correcta = ($extension == 'jpeg' or $extension == 'jpg');
+       $extension_correcta = ($extension == "jpeg" or $extension == "jpg");
         if ($extension_correcta) {
             $date  = date("d_m_y_h.i/");
             $nombre = "preview.jpg";
-            //$carpeta = '/xampp/htdocs/charter.abae.gob.ve/img_preview/preview'.$date; // BORRAR
-            $carpeta = 'img_preview/preview'.$date;
+            //$carpeta = "/xampp/htdocs/charter.abae.gob.ve/img_preview/preview".$date; // BORRAR
+            $carpeta = "img_preview/preview".$date;
         if (!file_exists($carpeta)) {
             mkdir($carpeta, 0777, true);
         }
         $ruta_destino_archivo = $carpeta .$nombre;
-        $archivo_ok = move_uploaded_file($archivo['tmp_name'], $ruta_destino_archivo);
-        $ruta = 'img_preview/preview'.$date.$nombre;
+        $archivo_ok = move_uploaded_file($archivo["tmp_name"], $ruta_destino_archivo);
+        $ruta = "img_preview/preview".$date.$nombre;
         $fecha = time();
         $fecha2 = date("d/m/Y",$fecha);
 
@@ -31,9 +31,9 @@
         // BORRAR
         /*
         //Creamos nuestra consulta sql
-        $query="insert into imagen(nombre,ruta,fecha) value ('$nombre','$ruta','$fecha2')";
+        $query="insert into imagen(nombre,ruta,fecha) value ("$nombre","$ruta","$fecha2")";
         //Ejecutamos la consutla
-        mysqli_query($query) or die('Error al procesar consulta: ' . mysqli_error());
+        mysqli_query($query) or die("Error al procesar consulta: " . mysqli_error());
         */
         }
     }
@@ -52,7 +52,7 @@
         <link href="css/main.css" rel="stylesheet">
     </head>
 
-    <?php include 'menu.php'; ?>
+    <?php include "menu.php"; ?>
     
     <body>
         <br><br><br>

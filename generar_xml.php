@@ -1,9 +1,9 @@
 <?php
-    $status=$_REQUEST['status'];	
+    $status=$_REQUEST["status"];	
 
-    // include 'conexion.php'; // BORRAR
-    include 'connection/connection.php';
-    $id=$_GET['id'];
+    // include "conexion.php"; // BORRAR
+    include "funciones/conexion/conexion.php";
+    $id=$_GET["id"];
 
     $query = "SELECT id, nombre, ruta, fecha FROM charter.xml_original WHERE id = ?";
     $stmt = $conn->prepare($query);
@@ -13,10 +13,10 @@
     $fila = $stmt->fetch();
     $file = $fila[2];
 
-    // $query="SELECT id,nombre,ruta,fecha FROM archivo where id='$id'"; // BORRAR
-       //$db      = 'charter';
+    // $query="SELECT id,nombre,ruta,fecha FROM archivo where id="$id""; // BORRAR
+       //$db      = "charter";
        //Ejecutamos la consutla
-       //mysqli_query($query,$conn) or die('Error al procesar consulta: ' . mysqli_error());
+       //mysqli_query($query,$conn) or die("Error al procesar consulta: " . mysqli_error());
 
     // BORRAR
     /*
@@ -24,13 +24,13 @@
           echo "New record created successfully";
         } else {
           echo "Error: " . $query . "<br>" . mysqli_error($conn);
-          echo 'No se pudo ejecutar la consulta: ' . mysqli_error();
+          echo "No se pudo ejecutar la consulta: " . mysqli_error();
         }
     */
 
-    /*$resultado = mysqli_query("SELECT id,nombre,ruta,fecha FROM archivo where id='$id'");
+    /*$resultado = mysqli_query("SELECT id,nombre,ruta,fecha FROM archivo where id="$id"");
     if (!$resultado) {
-        echo 'No se pudo ejecutar la consulta: ' . mysqli_error();
+        echo "No se pudo ejecutar la consulta: " . mysqli_error();
         exit;
     }*/
     //$fila = mysqli_fetch_row($resultado);
@@ -39,7 +39,7 @@
     /*
     $fila = mysqli_fetch_row($query);
 
-    $file = $fila['2'];
+    $file = $fila["2"];
     */
 ?>
 
@@ -58,7 +58,7 @@
         <link href="css/main.css" rel="stylesheet">
     </head>
    
-    <?php include 'menu.php'; ?>
+    <?php include "menu.php"; ?>
     
     <body>
         <!-- Navigation -->
@@ -78,7 +78,7 @@
                 
 				<br><br><br>
                 
-			    <div id="PAN" class="col-md-6 col-sm-2 hero-feature" style='display:none;'>
+			    <div id="PAN" class="col-md-6 col-sm-2 hero-feature" style="display:none;">
 				    <div class="form-login">
 				        <img src="img/vrss1_ xml.png" alt="status">
 				        <div class="caption">
@@ -87,7 +87,7 @@
 
                                <br><br>
 
-                                <a class="btn btn-success" id="PAN_BUTTON" onclick="Generar('<?php echo $status; ?>','<?php echo $id; ?>')" >Generar</a> 
+                                <a class="btn btn-success" id="PAN_BUTTON" onclick="Generar("<?php echo $status; ?>","<?php echo $id; ?>")" >Generar</a> 
 				            </p>
                         </div>
                     </div>

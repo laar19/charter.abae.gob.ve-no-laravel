@@ -1,12 +1,12 @@
 <link href="css/main.css" rel="stylesheet">
 
 <?php
-    include 'connection/connection.php';
+    include "funciones/conexion/conexion.php";
 
     // BORRAR
     /*
 	# conectare la base de datos
-    $con=@mysqli_connect('localhost', 'root', '', 'charter');
+    $con=@mysqli_connect("localhost", "root", "", "charter");
     if(!$con){
         die("imposible conectarse: ".mysqli_error($con));
     }
@@ -15,11 +15,11 @@
     }
     */
 
-	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
-	if($action == 'ajax') {
-		include 'pagination.php'; //incluir el archivo de paginación
+	$action = (isset($_REQUEST["action"])&& $_REQUEST["action"] !=NULL)?$_REQUEST["action"]:"";
+	if($action == "ajax") {
+		include "pagination.php"; //incluir el archivo de paginación
 		//las variables de paginación
-		$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
+		$page = (isset($_REQUEST["page"]) && !empty($_REQUEST["page"]))?$_REQUEST["page"]:1;
 		$per_page = 5; //la cantidad de registros que desea mostrar
 		$adjacents  = 4; //brecha entre páginas después de varios adyacentes
 		$offset = ($page - 1) * $per_page;
@@ -30,16 +30,16 @@
             echo "ERROR";
         }
         $row = $stmt->fetch();
-        $numrows = $row['numrows'];
+        $numrows = $row["numrows"];
         
         // BORRAR
         /*
 		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM xml ");
-		if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
+		if ($row= mysqli_fetch_array($count_query)){$numrows = $row["numrows"];}
         */
         
 		$total_pages = ceil($numrows/$per_page);
-		$reload = 'lista_xml_cargados.php';
+		$reload = "lista_xml_cargados.php";
 		//consulta principal para recuperar los datos
         $query = "SELECT * FROM charter.xml_generado ORDER BY id DESC OFFSET ? LIMIT ?";
         $stmt = $conn->prepare($query);
@@ -65,16 +65,16 @@
                     <?php
                         while ($row = $stmt->fetch()) {
                             //while($row = mysqli_fetch_array($query)){ // BORRAR
-                            $id_xml=$row['id'];
+                            $id_xml=$row["id"];
                     ?>
                     <tr>
-                        <td><?php echo $row['id'];?></td>
-                        <td><?php echo $row['nombre'];?></td>
-                        <td><?php echo $row['fecha'];?></td>
-                        <td><?php echo $row['ruta'];?></td>
-                        <td width='150'>
-                            <form action method='GET'>
-                                <a href='descargar_xml.php?id=<?php echo $id_xml;?>' class='glyphicon glyphicon-floppy-save' > XML_COS2</a>
+                        <td><?php echo $row["id"];?></td>
+                        <td><?php echo $row["nombre"];?></td>
+                        <td><?php echo $row["fecha"];?></td>
+                        <td><?php echo $row["ruta"];?></td>
+                        <td width="150">
+                            <form action method="GET">
+                                <a href="descargar_datos.php?id=<?php echo $id_xml;?>" class="glyphicon glyphicon-floppy-save" > XML_COS2</a>
                             </form>
                         </td>
                     </tr>

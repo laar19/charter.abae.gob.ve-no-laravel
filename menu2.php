@@ -26,7 +26,7 @@
         
         <br><br><br>
  
-        <div class="col-md-12" id='menu'>
+        <div class="col-md-12" id="menu">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -49,7 +49,7 @@
                                         <ul class="nav nav-list">
                                             <li><a href="subir_imagen.php">Subir Img-Preview</a></li>
                                             <li><a href="cargar_imagen_icon.php">Subir Img-Icon</a></li>
-                                            <li><a href="cargar_xml.php">Subir Xml del VRSS-1</a></li>
+                                            <li><a href="cargar_datos.php">Subir Xml del VRSS-1</a></li>
                                         </ul>
                                     </div>
                                 </li>
