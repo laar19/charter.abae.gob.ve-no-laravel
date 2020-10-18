@@ -38,14 +38,10 @@
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
                                 <li>
-                                    <table>
-                                        <td>
-                                            <center><img src="img/abae-charter3-otra.png"></center>
-                                        </td>
-                                        <td>
-                                            <a class="navbar-brand" href="menu.php">CHARTER</a>
-                                        </td>
-                                    </table>
+                                    <center><img src="img/abae-charter3-otra.png"></center>
+                                </li>
+                                <li>
+                                    <a class="navbar-brand" href="menu.php">CHARTER</a>
                                 </li>
                                 <li>
                                     <a href="#" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">

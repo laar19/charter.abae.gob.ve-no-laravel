@@ -25,7 +25,7 @@
             $_SESSION["user"] = $user;
             $_SESSION["rol"]  = $rol;
             
-            echo "<center><img src='img/cintillo-julio-2017.png' ></center><br><br><br><br><br><br><center><img src='img/Boton_correcto.png' > <br><br><h2>BIENVENIDO <br>'".$_SESSION["user"]."'<h2> <p>";
+            echo "<center><img src='img/cintillo-julio-2017.png' ></center><br><br><br><br><br><br><center><img src='img/Boton_correcto.png' > <br><br><h2>BIENVENIDO <br>".$_SESSION["user"]."<h2> <p>";
             
             echo "<script> 
                 function redireccionar(){

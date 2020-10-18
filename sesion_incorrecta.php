@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-md-offset-4 col-md-4">
                     <center><img src="img/incorrecto.PNG" ></center>
-                    <center><h2>Usuario o Contraseña incorrecta</h2>(Por Favor Intentelo de Nuevo)</center>
+                    <center><h2>Usuario o Contraseña incorrecta</h2>(Por Favor Inténtelo de Nuevo)</center>
                     <center>
                         <br>
                         <a href="index.php" class="btn btn-danger">Aceptar</a>

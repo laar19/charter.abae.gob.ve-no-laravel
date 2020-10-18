@@ -35,7 +35,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Nombre de la carpeta</th>
+                        <th>Nombre de la carpeta contenedora de las imágenes</th>
                         <th>XML original</th>
                         <th>XML charter</th>
                         <th>Fecha de carga</th>
@@ -57,7 +57,7 @@
                         
                         <th>
                             <form action method="GET">
-                                <a href="descargar_xml_miranda.php?id=<?php echo $id_xml;?>" class="fa fa-download">
+                                <a href="descargar_xml.php?id=<?php echo $id;?>&descargar_xml=original" class="fa fa-download">
                                     Descargar
                                 </a>
                             </form>
@@ -65,7 +65,7 @@
                         
                         <th>
                             <form action method="GET">
-                                <a href="generar_xml.php?id=<?php echo $id_xml;?>&status=0" name=id class="fa fa-download">
+                                <a href="descargar_xml.php?id=<?php echo $id;?>&descargar_xml=charter" class="fa fa-download">
                                     Descargar
                                 </a>
                             </form>

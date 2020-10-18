@@ -38,12 +38,8 @@
             </div>
         </div>
     
-        <!-- jQuery (necessary for Bootstrap"s JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         
-        <!-- Latest compiled and minified JavaScript -->
-        <!-- BORRAR -->
-        <!--script src="bootstrap-3.3.7/js/bootstrap.min.js"></script-->
         <script src="js/bootstrap.min.js"></script>
         
         <script>
@@ -58,7 +54,7 @@
                 };
                 $("#loader").fadeIn("slow");
                 $.ajax({
-                    url:"datos_cargados_ajax.php",
+                    url:"lista_datos_cargados_ajax.php",
                     data: parametros,
                     beforeSend: function(objeto) {
                         //$("#loader").html("<img src="loader.gif">");
