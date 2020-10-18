@@ -15,9 +15,7 @@
     </head>
 
     <body>
-        <header>
-            <center><img src="img/cintillo-julio-2017.png" ></center>
-        </header>
+        <?php include "templates/header.php"; ?>
 
         <center><img src="img/horizontal-fondo-blanco.png" ></center>
         

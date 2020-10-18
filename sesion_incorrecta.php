@@ -16,19 +16,13 @@
     </head>
     
     <body>
-
-        <!-- Header -->
-        <header>
-            <center><img src="img/cintillo-julio-2017.png" ></center>
-        </header>
-        
-        <br><br><br><br><br>
+        <?php include "templates/header.php"; ?>
         
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-4 col-md-4">
                     <center><img src="img/incorrecto.png" ></center>
-                    <center><h2>Usuario o Contraseña incorrectos</h2>(Por Favor Inténtelo de Nuevo)</center>
+                    <center><h2>Usuario o contraseña incorrectos</h2>(Por Favor Inténtelo de Nuevo)</center>
                     <center>
                         <br>
                         <a href="index.php" class="btn btn-danger">Aceptar</a>
