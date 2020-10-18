@@ -1,10 +1,12 @@
+<?php include_once "funciones/sesion.php"; ?>
+
 <html>
     <head>
-        <title>Abae Charter</title>
-
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Menu</title>
         
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
         <link href="css/main.css" rel="stylesheet">
         
         <!-- Bootstrap Core CSS -->
@@ -15,31 +17,10 @@
     </head>
 
     <body>
-        <header>
-            <center><img src="img/cintillo-julio-2017.png" ></center>
-        </header>
-
-        <center><img src="img/horizontal-fondo-blanco.png" ></center>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-offset-4 col-md-4">
-                    <div class="form-login">
-                        <form method="POST" action="login.php">
-                            <center><h4>Ingresar al Sistema</h4></center>
-                            <input name="username" type="text" id="user" class="form-control input-sm chat-input" placeholder="Nombre de Usuario" required/>
-                            <input name="pass" type="password" id="pass" class="form-control input-sm chat-input" placeholder="Contraseña" required />
-                            <div class="wrapper">
-                                <span class="group-btn">     
-                                    <center><input name="submit" type="submit" value="Ingresar" class="btn btn-success btn-md"></center>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <?php include "templates/header.php"; ?>
+ 
+        <?php include "templates/menu.php"; ?>
+        
         <!-- jQuery -->
         <script src="js/jquery-3.2.1.min.js"></script>
 

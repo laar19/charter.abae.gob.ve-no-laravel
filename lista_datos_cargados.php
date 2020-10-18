@@ -12,16 +12,19 @@
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
     </head>
-  
-    <?php include "menu.php"; ?>
 
     <body>
+        <?php include "templates/header.php"; ?>
+    
+        <?php include "templates/menu.php"; ?>
+        
+        
         <div class="container">
             <center><h2>Descargar datos</h2></center> 
 
             <div class="input-group">
                 <span class="input-group-addon">Buscar</span>
-                <input id="filtrar" type="text" class="form-control" placeholder="Ingresar el parametro...">
+                <input id="filtrar" type="text" class="form-control" placeholder="Ingresar el parámetro...">
             </div>
             
             <br>
@@ -38,8 +41,10 @@
             </div>
         </div>
     
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        
+        <!-- jQuery -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
         
         <script>

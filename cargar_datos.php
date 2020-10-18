@@ -47,10 +47,12 @@
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
     </head>
- 
-    <?php include "menu.php"; ?>
     
     <body>
+        <?php include "templates/header.php"; ?>
+    
+        <?php include "templates/menu.php"; ?>
+        
         <center>            
             <div class="container">
                 <div class="row">

@@ -15,20 +15,20 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     
-    <body background="Tierra.png">
+    <body>
 
         <!-- Header -->
         <header>
             <center><img src="img/cintillo-julio-2017.png" ></center>
         </header>
         
-        <br><br><br><br><br><br><br>
+        <br><br><br><br><br>
         
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-4 col-md-4">
-                    <center><img src="img/incorrecto.PNG" ></center>
-                    <center><h2>Usuario o Contraseña incorrecta</h2>(Por Favor Inténtelo de Nuevo)</center>
+                    <center><img src="img/incorrecto.png" ></center>
+                    <center><h2>Usuario o Contraseña incorrectos</h2>(Por Favor Inténtelo de Nuevo)</center>
                     <center>
                         <br>
                         <a href="index.php" class="btn btn-danger">Aceptar</a>

@@ -1,41 +1,53 @@
-<?php
-    include "funciones/conexion.php";
+<html>
+    <head>
+        <title>Abae Charter</title>
 
-    error_reporting(0);
-    session_start();
-
-    if ($_POST["username"] == null || $_POST["pass"] == null) {
-        echo "<script>location.href = 'sesion_incorrecta.php'</script>";
-
-    }
-    else {
-        $user = $_POST["username"];
-        $pass = $_POST["pass"];
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        $query = "SELECT username, pass AS numrows FROM charter.usuarios WHERE username = ? AND pass = ?";
-        $stmt = $conn->prepare($query);
-        if ($stmt->execute([$user, $pass]) === false) {
-            echo "ERROR";
-        }
-        $row = $stmt->fetch();
-        $numrows = $row["numrows"];
+        <link href="css/main.css" rel="stylesheet">
         
-        if ($numrows > 0) {            
-            session_start();
-            $_SESSION["user"] = $user;
-            $_SESSION["rol"]  = $rol;
-            
-            echo "<center><img src='img/cintillo-julio-2017.png' ></center><br><br><br><br><br><br><center><img src='img/Boton_correcto.png' > <br><br><h2>BIENVENIDO <br>".$_SESSION["user"]."<h2> <p>";
-            
-            echo "<script> 
-                function redireccionar(){
-                    window.location='menu.php';
-                }
-                setTimeout ('redireccionar()', 2000);
-                </script></a></p></center>";
-        }
-        else {
-            echo "<script>location.href = 'sesion_incorrecta.php'</script>";
-        }
-    }
-?>
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Custom Fonts -->
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <header>
+            <center><img src="img/cintillo-julio-2017.png" ></center>
+        </header>
+
+        <center><img src="img/horizontal-fondo-blanco.png" ></center>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4">
+                    <div class="form-login">
+                        <form method="POST" action="login_verify.php">
+                            <center><h4>Ingresar al Sistema</h4></center>
+                            <input name="username" type="text" id="user" class="form-control input-sm chat-input" placeholder="Nombre de Usuario" required/>
+                                
+                            <input name="pass" type="password" id="pass" class="form-control input-sm chat-input" placeholder="Contraseña" required />
+                            
+                            <br>
+                                
+                            <div class="wrapper">
+                                <span class="group-btn">     
+                                    <center><input name="submit" type="submit" value="Ingresar" class="btn btn-success btn-md"></center>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
