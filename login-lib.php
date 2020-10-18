@@ -1,5 +1,5 @@
 <?php
-    include "funciones/conexion.php";
+    include "includes/conexion.php";
 
     error_reporting(0);
     session_start();

@@ -18,7 +18,7 @@
                         </li>
                     
                         <li>
-                            <a class="navbar-brand" href="index.php">CHARTER</a>
+                            <a class="navbar-brand" href="index.php"> CHARTER </a>
                         </li>
                         
                         <li>
@@ -28,7 +28,7 @@
                             
                             <div class="collapse" id="toggleDemo2" style="height: 0px;">
                                 <ul class="nav nav-list">
-                                    <li><a href="cargar_datos.php">Cargar datos</a></li>
+                                    <li><a href="cargar_datos.php"> Cargar datos </a></li>
                                 </ul>
                             </div>
                         </li>
@@ -40,7 +40,7 @@
                             
                             <div class="collapse" id="toggleDemo1" style="height: 0px;">
                                 <ul class="nav nav-list">
-                                    <li><a href="lista_datos_cargados.php">Datos cargados</a></li>
+                                    <li><a href="lista_datos_cargados.php"> Visualizar datos </a></li>
                                 </ul>
                             </div>
                         </li>
@@ -52,7 +52,13 @@
                             
                             <div class="collapse" id="toggleDemo3" style="height: 0px;">
                                 <ul class="nav nav-list">
-                                    <li><a href="gestionar_usuarios.php">Gstionar usuarios</a></li>
+                                    <li><a href="#"> Crear nuevo usuario </a></li>
+                                </ul>
+                                <ul class="nav nav-list">
+                                    <li><a href="#"> Editar usuario </a></li>
+                                </ul>
+                                <ul class="nav nav-list">
+                                    <li><a href="#"> Eliminar usuario </a></li>
                                 </ul>
                             </div>
                         </li>    

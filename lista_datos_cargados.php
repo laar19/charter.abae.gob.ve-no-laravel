@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Listado de archivos cargados</title>
+        <title> Listado de archivos cargados </title>
 
         <link href="css/main.css" rel="stylesheet">
         
@@ -59,7 +59,7 @@
                 };
                 $("#loader").fadeIn("slow");
                 $.ajax({
-                    url:"lista_datos_cargados_ajax.php",
+                    url:"lista_datos_cargados-lib.php",
                     data: parametros,
                     beforeSend: function(objeto) {
                         //$("#loader").html("<img src="loader.gif">");

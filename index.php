@@ -1,8 +1,8 @@
-<?php include_once "funciones/sesion.php"; ?>
+<?php include_once "includes/sesion.php"; ?>
 
 <html>
     <head>
-        <title>Menu</title>
+        <title> Inicio </title>
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">

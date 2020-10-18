@@ -25,7 +25,7 @@
                     <center><h2>Usuario o contraseña incorrectos</h2>(Por Favor Inténtelo de Nuevo)</center>
                     <center>
                         <br>
-                        <a href="index.php" class="btn btn-danger">Aceptar</a>
+                        <a href="login.php" class="btn btn-danger">Aceptar</a>
                     </center>
                     <br>
                 </div>

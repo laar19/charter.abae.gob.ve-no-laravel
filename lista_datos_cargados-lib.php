@@ -2,11 +2,11 @@
 <link href="css/main.css" rel="stylesheet">
 
 <?php
-    include "funciones/conexion.php";
+    include "includes/conexion.php";
 
 	$action = (isset($_REQUEST["action"])&& $_REQUEST["action"] !=NULL)?$_REQUEST["action"]:"";
 	if($action == "ajax"){
-		include "funciones/pagination.php"; //incluir el archivo de paginación
+		include "includes/pagination.php"; //incluir el archivo de paginación
 		//las variables de paginación
 		$page = (isset($_REQUEST["page"]) && !empty($_REQUEST["page"]))?$_REQUEST["page"]:1;
 		$per_page = 5; //la cantidad de registros que desea mostrar
@@ -57,7 +57,7 @@
                         
                         <th>
                             <form action method="GET">
-                                <a href="descargar_xml.php?id=<?php echo $id;?>&descargar_xml=original" class="fa fa-download">
+                                <a href="descargar_datos.php?id=<?php echo $id;?>&descargar=original" class="fa fa-download">
                                     Descargar
                                 </a>
                             </form>
@@ -65,7 +65,7 @@
                         
                         <th>
                             <form action method="GET">
-                                <a href="descargar_xml.php?id=<?php echo $id;?>&descargar_xml=charter" class="fa fa-download">
+                                <a href="descargar_datos.php?id=<?php echo $id;?>&descargar=charter" class="fa fa-download">
                                     Descargar
                                 </a>
                             </form>
@@ -75,7 +75,7 @@
                         
                         <th>
                             <form action method="GET">
-                                <a href="descargar_todo.php?id=<?php echo $id;?>" class="fa fa-download">
+                                <a href="descargar_datos.php?id=<?php echo $id;?>&descargar=todo" class="fa fa-download">
                                     Descargar
                                 </a>
                             </form>
