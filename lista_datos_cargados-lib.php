@@ -31,15 +31,15 @@
         }
 		
 		if ($numrows>0){
-			?>
+?>
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Nombre de la carpeta contenedora de las imágenes</th>
-                        <th>XML original</th>
-                        <th>XML charter</th>
-                        <th>Fecha de carga</th>
-                        <th>Descargar todo</th>
+                        <th> Nombre de la carpeta contenedora de las imágenes </th>
+                        <th> XML original </th>
+                        <th> XML charter </th>
+                        <th> Fecha de carga </th>
+                        <th> Descargar todo </th>
                     </tr>
                 </thead>
                 <tbody class="buscar">
@@ -53,33 +53,33 @@
 				    ?>
 
                     <tr>
-                        <th><?php echo $nombre_carpeta; ?></th>
+                        <td> <?php echo $nombre_carpeta; ?> </td>
                         
-                        <th>
+                        <td>
                             <form action method="GET">
                                 <a href="descargar_datos-lib.php?id=<?php echo $id;?>&descargar=original" class="fa fa-download">
                                     Descargar
                                 </a>
                             </form>
-                        </th>
+                        </td>
                         
-                        <th>
+                        <td>
                             <form action method="GET">
                                 <a href="descargar_datos-lib.php?id=<?php echo $id;?>&descargar=charter" class="fa fa-download">
                                     Descargar
                                 </a>
                             </form>
-                        </th>
+                        </td>
                         
-                        <th><?php echo $fecha; ?></th>
+                        <td> <?php echo $fecha; ?> </td>
                         
-                        <th>
+                        <td>
                             <form action method="GET">
                                 <a href="descargar_datos-lib.php?id=<?php echo $id;?>&descargar=todo" class="fa fa-download">
                                     Descargar
                                 </a>
                             </form>
-                        </th>
+                        </td>
                     </tr>
 				    <?php } ?>
                 </tbody>

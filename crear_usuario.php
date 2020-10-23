@@ -88,6 +88,6 @@
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
         
-        <script src="js/jquery/main.js"></script>
+        <script src="js/jquery/verify_password.js"></script>
     </body>
 </html>

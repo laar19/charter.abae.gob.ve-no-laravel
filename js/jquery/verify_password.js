@@ -17,7 +17,7 @@ $(document).ready(function () {
         }
     });
     
-    $("#pass").on("blur", function() { // puede ser on blur también
+    $("#pass").on("blur", function() {
         var pass = $("#pass").val();
         var repetir_password = $("#repetir_password").val();
         

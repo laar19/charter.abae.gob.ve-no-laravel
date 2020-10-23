@@ -31,12 +31,12 @@
         }
 		
 		if ($numrows>0){
-			?>
+?>
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Nombre de usuario</th>
-                        <th>Rol</th>
+                        <th> Nombre de usuario </th>
+                        <th> Rol </th>
                     </tr>
                 </thead>
                 <tbody class="buscar">
@@ -48,16 +48,17 @@
 				    ?>
 
                     <tr>
-                        <th><?php echo $username; ?></th>
-                        <th><?php echo $rol; ?></th>
+                        <td> <?php echo $username; ?> </td>
                         
-                        <th>
+                        <td> <?php echo $rol; ?> </td>
+                        
+                        <td>
                             <form action method="GET">
                                 <a href="eliminar_usuario-lib.php?id=<?php echo $id;?>" class="fa fa-trash">
                                     Eliminar
                                 </a>
                             </form>
-                        </th>
+                        </td>
                     </tr>
 				    <?php } ?>
                 </tbody>

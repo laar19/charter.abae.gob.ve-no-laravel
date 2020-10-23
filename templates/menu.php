@@ -61,7 +61,8 @@
                                         </div>';
                                 }
                             ?>
-                        </li>    
+                        </li>
+                    
                         <li>
                             <a href="#" data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
                                 <span class="fa fa-times-circle"></span> Salir<span class="caret"></span>
