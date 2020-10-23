@@ -1,63 +1,5 @@
-<?php
-    include "includes/datos.php";
-    include "includes/conexion.php";
-    include "includes/generar_xml_charter.php";
+<?php include "includes/sesion.php"; ?>
 
-    function valida_archivo($archivo_name, $extension_archivo) {
-        $extension = pathinfo($archivo_name, PATHINFO_EXTENSION);
-        $extension = strtolower($extension);
-        $extension_correcta = ($extension == $extension_archivo);
-        
-        return $extension_correcta;
-    }
-
-    function copia_archivo($carpeta, $hash, $date, $archivo, $nombre) {
-        if (!file_exists($carpeta)) {
-            //mkdir($carpeta, 0777, true); // default, widest possible access
-            mkdir($carpeta, 0755, true); // Everything for owner, read and execute for others
-        }
-       
-        $ruta_destino_archivo = $carpeta."/".$date."-".$hash."-".$nombre."-".$archivo["name"];
-        $upload = move_uploaded_file(strval($archivo["tmp_name"]), strval($ruta_destino_archivo));
-        if(!$upload) {
-            echo "<script>
-                        alert('Error al subir la imágen');
-                </script>";
-        }
-    }
-
-    $flag = 1;
-
-    $archivo_xml    = (isset($_FILES["archivo_xml"])) ? $_FILES["archivo_xml"] : null;
-    $imagen_preview = (isset($_FILES["imagen_preview"])) ? $_FILES["imagen_preview"] : null;
-    $imagen_icon    = (isset($_FILES["icon"])) ? $_FILES["icon"] : null;
-
-    if ($archivo_xml and $imagen_preview and $imagen_icon) {
-        $myfile = fopen($archivo_xml["tmp_name"], "r") or die("Unable to open file!");
-        $xml_original = fread($myfile, filesize($archivo_xml["tmp_name"]));
-        fclose($myfile);
-        
-        $xml_charter = generar_xml_charter($xml_original);
-     
-        if ($flag==1) {
-            $date    = date("d-m-y-h.i");
-            $hash    = hash("md5", $archivo_xml["name"]);
-            $carpeta = $date."-".$hash;
-            $carpeta_subida = $ruta.$date."-".$hash;
-            
-            copia_archivo($carpeta_subida, $hash, $date, $imagen_icon, "icon");
-            copia_archivo($carpeta_subida, $hash, $date, $imagen_preview, "preview");
-            
-            $query = "INSERT INTO charter.archivos (nombre_carpeta, xml_original, xml_charter, fecha) VALUES (?, ?, ?, CURRENT_TIMESTAMP)";
-            $stmt  = $conn->prepare($query);
-            if ($stmt->execute([$carpeta, $xml_original, $xml_charter]) === false) {
-                echo "ERROR";
-            }
-        }
-    }
-?>
-
-<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -80,33 +22,40 @@
                 <div class="row">
                     <div class="col-md-offset-4 col-md-5">
                         <div class="form-login">
-                            <form method="post" action="cargar_datos.php" enctype="multipart/form-data">
-                                <label> Seleccione el archivo .XML </label>
-                                <input type="file" name="archivo_xml" required="required"/> <br><br>
-                                
-                                <label> Seleccione el icon </label>
-                                <input type="file" name="icon" required="required"/><br><br>
-                                
-                                <label> Seleccione la imagen preview </label>
-                                <input type="file" name="imagen_preview" required="required"/><br><br>
-                                
+                            <form method="post" action="cargar_datos-lib.php" enctype="multipart/form-data">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label> Seleccione el archivo .XML </label>
+                                            <input type="file" name="archivo_xml" required="required" accept=".xml" multiple/><br>
+                                            <!--
+                                            <input type="file" name="archivo_xml[]" required="required" accept=".xml" multiple/><br><br>
+                                            -->
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <label> Seleccione el icon </label>
+                                            <input type="file" name="icons" required="required" accept=".jpg, .jpeg" multiple/><br>
+                                            <!--
+                                            <input type="file" name="icons[]" required="required" accept=".jpg, .jpeg" multiple/><br><br>
+                                            -->
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <label> Seleccione la imagen preview </label>
+                                            <input type="file" name="imagen_preview" required="required" accept=".jpg, .jpeg" multiple/><br>
+                                            <!--
+                                            <input type="file" name="imagen_preview[]" required="required" accept=".jpg, .jpeg" multiple/><br><br>
+                                            -->
+                                        </td>
+                                    </tr>
+                                </table>
                                 <input  class="btn btn-info btn-md" type="submit" value="Subir Archivos"/>
                             </form>
-                            
-                            <?php if(isset($archivo_xml) and isset($imagen_preview) and isset($imagen_icon)): ?>
-                                <?php if(!valida_archivo($archivo_xml["name"], "xml")): ?>
-                                    <?php if(!valida_archivo($imagen_icon["name"], "jpg") or valida_archivo($imagen_icon["name"], "jpeg")): ?>
-                                        <?php if(!valida_archivo($imagen_preview["name"], "jpg") or valida_archivo($imagen_preview["name"], "jpeg")): ?>
-                                            <?php $flag = 0; echo $flag; ?>
-                                            <span style="color: #f00;"> ERROR. El archivo XML debe tener extesión .xml y las imágenes deben tener extensión .jpg o .jpeg </span>
-                                        <?php endif ?>
-                                    <?php endif ?>
-                                <?php else: ?>
-                                    <script>
-                                        alert("Los archivos se han subido correctamente");
-                                    </script>
-                                <?php endif ?>
-                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -114,7 +63,7 @@
         </center>
         
         <!-- jQuery -->
-        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/jquery/jquery-3.2.1.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>  

@@ -46,21 +46,21 @@
                         </li>
                         
                         <li>
-                            <a href="#" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
-                                <span class="fa fa-download"></span> Gestión de usuarios <span class="caret"></span>
-                            </a>
-                            
-                            <div class="collapse" id="toggleDemo3" style="height: 0px;">
-                                <ul class="nav nav-list">
-                                    <li><a href="#"> Crear nuevo usuario </a></li>
-                                </ul>
-                                <ul class="nav nav-list">
-                                    <li><a href="#"> Editar usuario </a></li>
-                                </ul>
-                                <ul class="nav nav-list">
-                                    <li><a href="#"> Eliminar usuario </a></li>
-                                </ul>
-                            </div>
+                            <?php
+                                if($_SESSION["rol"] == "admin") {
+                                    echo '<a href="#" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
+                                            <span class="fa fa-download"></span> Gestión de usuarios <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="toggleDemo3" style="height: 0px;">
+                                            <ul class="nav nav-list">
+                                                <li><a href="crear_usuario.php"> Crear nuevo usuario </a></li>
+                                            </ul>
+                                            <ul class="nav nav-list">
+                                                <li><a href="lista_usuarios.php"> Eliminar usuario </a></li>
+                                            </ul>
+                                        </div>';
+                                }
+                            ?>
                         </li>    
                         <li>
                             <a href="#" data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
@@ -69,7 +69,7 @@
                             
                             <div class="collapse" id="toggleDemo4" style="height: 0px;">
                                 <ul class="nav nav-list">
-                                    <li><a href="logout.php?salir=cerrar">Log out</a></li>
+                                    <li><a href="logout.php?cerrar_sesion=true">Cerrar sesión</a></li>
                                 </ul>
                             </div>
                         </li>

@@ -57,7 +57,7 @@
                         
                         <th>
                             <form action method="GET">
-                                <a href="descargar_datos.php?id=<?php echo $id;?>&descargar=original" class="fa fa-download">
+                                <a href="descargar_datos-lib.php?id=<?php echo $id;?>&descargar=original" class="fa fa-download">
                                     Descargar
                                 </a>
                             </form>
@@ -65,7 +65,7 @@
                         
                         <th>
                             <form action method="GET">
-                                <a href="descargar_datos.php?id=<?php echo $id;?>&descargar=charter" class="fa fa-download">
+                                <a href="descargar_datos-lib.php?id=<?php echo $id;?>&descargar=charter" class="fa fa-download">
                                     Descargar
                                 </a>
                             </form>
@@ -75,7 +75,7 @@
                         
                         <th>
                             <form action method="GET">
-                                <a href="descargar_datos.php?id=<?php echo $id;?>&descargar=todo" class="fa fa-download">
+                                <a href="descargar_datos-lib.php?id=<?php echo $id;?>&descargar=todo" class="fa fa-download">
                                     Descargar
                                 </a>
                             </form>

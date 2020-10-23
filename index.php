@@ -1,4 +1,4 @@
-<?php include_once "includes/sesion.php"; ?>
+<?php include "includes/sesion.php"; ?>
 
 <html>
     <head>
@@ -16,13 +16,13 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
 
-    <body>
+    <body>        
         <?php include "templates/header.php"; ?>
  
         <?php include "templates/menu.php"; ?>
         
         <!-- jQuery -->
-        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/jquery/jquery-3.2.1.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>

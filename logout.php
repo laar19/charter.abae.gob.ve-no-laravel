@@ -1,7 +1,9 @@
 <?php
     session_start();
-    
-    if(session_destroy()) { // Destruye todas las sesiones
-        header("Location: login.php"); // Redireccionando a la pagina index.php
+    $cerrar_sesion = $_GET["cerrar_sesion"];
+  
+    if($cerrar_sesion) {
+        session_destroy();
+        header("location: login.php");
     }
 ?>
