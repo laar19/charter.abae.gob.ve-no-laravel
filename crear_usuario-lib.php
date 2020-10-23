@@ -7,7 +7,7 @@
     $rol      = (isset($_POST["rol"])) ? $_POST["rol"] : null;
 
     if($username and $pass and $rol) {
-        $query = "SELECT username FROM charter.usuarios WHERE username = ?";
+        $query = "SELECT username FROM usuarios WHERE username = ?";
         $stmt = $conn->prepare($query);
         if ($stmt->execute([$username]) === false) {
             echo "ERROR";
@@ -17,7 +17,7 @@
         if(!$row) {
             $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
 
-            $query = "INSERT INTO charter.usuarios (username, pass, rol) VALUES (?, ?, ?)";
+            $query = "INSERT INTO usuarios (username, pass, rol) VALUES (?, ?, ?)";
             $stmt  = $conn->prepare($query);
             if ($stmt->execute([$username, $pass_hash, $rol]) === false) {
                 echo "ERROR";

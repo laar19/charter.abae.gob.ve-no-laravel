@@ -37,7 +37,7 @@
         copia_archivo($carpeta_subida, $hash, $date, $imagen_icon, "icon");
         copia_archivo($carpeta_subida, $hash, $date, $imagen_preview, "preview");
             
-        $query = "INSERT INTO charter.archivos (nombre_carpeta, xml_original, xml_charter, fecha) VALUES (?, ?, ?, CURRENT_TIMESTAMP)";
+        $query = "INSERT INTO archivos (nombre_carpeta, xml_original, xml_charter, fecha) VALUES (?, ?, ?, CURRENT_TIMESTAMP)";
         $stmt  = $conn->prepare($query);
         if ($stmt->execute([$carpeta, $xml_original, $xml_charter]) === false) {
             echo "ERROR";

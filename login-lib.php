@@ -8,7 +8,7 @@
         $username = $_POST["username"];
         $pass     = $_POST["pass"];
         
-        $query = "SELECT username, pass, rol FROM charter.usuarios WHERE username = ?";
+        $query = "SELECT username, pass, rol FROM usuarios WHERE username = ?";
         $stmt = $conn->prepare($query);
         if ($stmt->execute([$username]) === false) {
             echo "ERROR";

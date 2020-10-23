@@ -27,17 +27,17 @@
     $id = $_GET["id"];
 
     if($_GET["descargar"]=="original") {
-        $query = "SELECT xml_original FROM charter.archivos WHERE id = ?";
+        $query = "SELECT xml_original FROM archivos WHERE id = ?";
         descargar_xml($conn, $query, $id, "xml_original");
     }
 
     if($_GET["descargar"]=="charter") {
-        $query = "SELECT xml_charter FROM charter.archivos WHERE id = ?";
+        $query = "SELECT xml_charter FROM archivos WHERE id = ?";
         descargar_xml($conn, $query, $id, "xml_charter");
     }
 
     if($_GET["descargar"]=="todo") {
-        $query = "SELECT nombre_carpeta, xml_charter FROM charter.archivos WHERE id = ?";
+        $query = "SELECT nombre_carpeta, xml_charter FROM archivos WHERE id = ?";
         $stmt = $conn->prepare($query);
         if ($stmt->execute([$id]) === false) {
             echo "ERROR";

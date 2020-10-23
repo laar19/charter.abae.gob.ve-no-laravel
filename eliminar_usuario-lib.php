@@ -4,7 +4,7 @@
 
     $id = $_GET["id"];
 
-    $query = "DELETE FROM charter.usuarios WHERE id = ?";
+    $query = "DELETE FROM usuarios WHERE id = ?";
     $stmt = $conn->prepare($query);
     if ($stmt->execute([$id]) === false) {
         echo "ERROR";

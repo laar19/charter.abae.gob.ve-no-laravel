@@ -13,7 +13,7 @@
 		$adjacents  = 4; //brecha entre páginas después de varios adyacentes
 		$offset = ($page - 1) * $per_page;
 		//Cuenta el número total de filas de la tabla*/
-        $query = "SELECT count(*) AS numrows FROM charter.usuarios";
+        $query = "SELECT count(*) AS numrows FROM usuarios";
         $stmt = $conn->prepare($query);
         if ($stmt->execute() === false) {
             echo "ERROR";
@@ -24,7 +24,7 @@
 		$total_pages = ceil($numrows/$per_page);
 		$reload = "lista_usuarios.php";
 		//consulta principal para recuperar los datos
-        $query = "SELECT * FROM charter.usuarios ORDER BY id DESC OFFSET ? LIMIT ?";
+        $query = "SELECT * FROM usuarios ORDER BY id DESC OFFSET ? LIMIT ?";
         $stmt = $conn->prepare($query);
         if ($stmt->execute([$offset, $per_page]) === false) {
             echo "ERROR";

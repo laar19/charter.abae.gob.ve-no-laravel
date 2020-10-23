@@ -1,12 +1,10 @@
 -- Adminer 4.7.7 PostgreSQL dump
 
-\connect "charter";
-
 DROP TABLE IF EXISTS "archivos";
 DROP SEQUENCE IF EXISTS archivo_id_seq;
 CREATE SEQUENCE archivo_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 125 CACHE 1;
 
-CREATE TABLE "charter"."archivos" (
+CREATE TABLE "public"."archivos" (
     "id" integer DEFAULT nextval('archivo_id_seq') NOT NULL,
     "nombre_carpeta" character varying(150) NOT NULL,
     "xml_original" text NOT NULL,
@@ -423,7 +421,7 @@ DROP TABLE IF EXISTS "usuarios";
 DROP SEQUENCE IF EXISTS usuario_id_seq;
 CREATE SEQUENCE usuario_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 20 CACHE 1;
 
-CREATE TABLE "charter"."usuarios" (
+CREATE TABLE "public"."usuarios" (
     "id" integer DEFAULT nextval('usuario_id_seq') NOT NULL,
     "username" character varying(15) NOT NULL,
     "pass" character varying(255) NOT NULL,
