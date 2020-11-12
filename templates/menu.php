@@ -49,7 +49,7 @@
                             <?php
                                 if($_SESSION["rol"] == "admin") {
                                     echo '<a href="#" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
-                                            <span class="fa fa-download"></span> Gestión de usuarios <span class="caret"></span>
+                                            <span class="fa fa-cog"></span> Gestión de usuarios <span class="caret"></span>
                                         </a>
                                         <div class="collapse" id="toggleDemo3" style="height: 0px;">
                                             <ul class="nav nav-list">

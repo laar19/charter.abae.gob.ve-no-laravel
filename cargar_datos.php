@@ -27,7 +27,7 @@
                                     <tr>
                                         <td>
                                             <label> Seleccione el archivo .XML </label>
-                                            <input type="file" name="archivo_xml" required="required" accept=".xml" multiple/><br>
+                                            <input type="file" name="archivo_xml" required="required" accept=".xml"/><br>
                                             <!--
                                             <input type="file" name="archivo_xml[]" required="required" accept=".xml" multiple/><br><br>
                                             -->
@@ -37,7 +37,7 @@
                                     <tr>
                                         <td>
                                             <label> Seleccione el icon </label>
-                                            <input type="file" name="icons" required="required" accept=".jpg, .jpeg" multiple/><br>
+                                            <input type="file" name="icon" required="required" accept=".jpg, .jpeg"/><br>
                                             <!--
                                             <input type="file" name="icons[]" required="required" accept=".jpg, .jpeg" multiple/><br><br>
                                             -->
@@ -47,7 +47,7 @@
                                     <tr>
                                         <td>
                                             <label> Seleccione la imagen preview </label>
-                                            <input type="file" name="imagen_preview" required="required" accept=".jpg, .jpeg" multiple/><br>
+                                            <input type="file" name="imagen_preview" required="required" accept=".jpg, .jpeg"/><br>
                                             <!--
                                             <input type="file" name="imagen_preview[]" required="required" accept=".jpg, .jpeg" multiple/><br><br>
                                             -->

@@ -8,5 +8,9 @@
     }
     $Pg_credentials = new Pg_credentials();
     
-    $ruta = "IMAGENES_SUBIDAS/";
+    $ruta = "IMAGENES_SUBIDAS/";    
+    if (!file_exists($ruta)) {
+        //mkdir($carpeta, 0777, true); // default, widest possible access
+        mkdir($ruta, 0755, true); // Everything for owner, read and execute for others
+    }
 ?>

@@ -19,8 +19,8 @@
     }
 
     $archivo_xml    = (isset($_FILES["archivo_xml"])) ? $_FILES["archivo_xml"] : null;
-    $imagen_preview = (isset($_FILES["imagen_preview"])) ? $_FILES["imagen_preview"] : null;
     $imagen_icon    = (isset($_FILES["icon"])) ? $_FILES["icon"] : null;
+    $imagen_preview = (isset($_FILES["imagen_preview"])) ? $_FILES["imagen_preview"] : null;
 
     if ($archivo_xml and $imagen_preview and $imagen_icon) {
         $myfile = fopen($archivo_xml["tmp_name"], "r") or die("Unable to open file!");
