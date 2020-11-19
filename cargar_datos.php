@@ -21,6 +21,8 @@
                         <div class="form-login">
                             <form method="post" action="cargar_datos-lib.php" enctype="multipart/form-data">
                                 <table>
+                                    <h3>Todos los campos son requeridos</h3>
+                                    <br>
                                     <tr>
                                         <td>
                                             <label> Seleccione el archivo .XML </label>
