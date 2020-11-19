@@ -6,10 +6,7 @@
         
         <title> Cargar datos </title>
         
-        <link href="css/main.css" rel="stylesheet">
- 
-        <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <?php include "templates/head.php"; ?>
     </head>
     
     <body>
