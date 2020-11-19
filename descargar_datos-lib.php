@@ -46,7 +46,7 @@
         $carpeta = $row["nombre_carpeta"];
         $xml_charter = $row["xml_charter"];
 
-        $zipname = "charter.zip";
+        $zipname = $carpeta;
         $zip = new ZipArchive;
         $res = $zip->open($zipname, ZipArchive::CREATE);
         if ($res === TRUE) {

@@ -35,7 +35,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th> Nombre de la carpeta contenedora de las imágenes </th>
+                        <th> Nombre del paquete </th>
                         <th> XML original </th>
                         <th> XML charter </th>
                         <th> Fecha de carga </th>
